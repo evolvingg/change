@@ -1,0 +1,91 @@
+<html>
+    <head>
+        <style>
+        body {
+        font-family: Helvetica, Arial, sans-serif;
+        font-size: 12px;
+        }
+
+h1 {
+  font-size: 1.5em;
+}
+
+h2 {
+  font-size: 1.2em;
+}
+        </style>
+        </head>
+
+        <body>
+            <h1>hello people</h1>
+            <h2>world is messy yet beautiful</h2>
+            <button id='changeSize1'>button1st</button>
+            <button id='changeSize2'>button 2nd</button>
+            <button id='changesSize3'>button 3rd</button>
+        </body>
+        <script>
+
+            function changeSize(size){
+                return function(){
+                     document.getElementsByTagName('h1')[0].style.fontSize=size +'px';
+                }
+            }
+
+       var change=changeSize(30)
+       document.getElementById('changeSize1').onclick = change;
+
+  var counter = (function() {
+  var privateCounter = 0;
+  function changeBy(val) {
+    privateCounter += val;
+  }
+  return {
+    increment: function() {
+      changeBy(1);
+    },
+    decrement: function() {
+      changeBy(-1);
+    },
+    value: function() {
+      return privateCounter;
+    }
+  };   
+})();
+
+console.log('counter1');
+console.log(counter.value()); 
+counter.increment();
+counter.increment();
+console.log(counter.value()); 
+counter.decrement();
+console.log(counter.value()); 
+
+var makeCount = function(){
+    var priv =0;
+    function changeBy(val){
+        priv += val;
+    }
+
+    return {
+        inc: function(){ 
+                changeBy(1)
+            } ,
+        dec: function(){
+              changeBy(-1)
+            },
+        val: function(){
+            return priv;
+        }
+    }
+}
+console.log('counter2');
+var c1=makeCount();
+var c2=makeCount();
+c1.inc();
+c1.inc();
+c2.inc();
+console.log(c1.val());
+console.log(c2.val());
+
+            </script>
+</html>
