@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<script type="text/javascript">
+var adder = {
+  base: 1,
+
+  add: function(a) {
+    var f = v =>{  console.log(this); return v + this.base; }
+    return f(a);
+  },
+
+  addThruCall: function(a) {
+    var f = v =>{  console.log(this); return v + this.base; }
+    var b = {
+      base: 2
+    };
+
+    return f.call(b, a);
+  },addiife:  (function(f){ function add(val){return val*f} 
+       return add})(50)
+};
+var foo=2;
+console.log(adder.add(1));         // This would log to 2
+console.log(adder.addThruCall(1)); console.log(adder.addiife(34));
+</script>
+</body>
+</html>

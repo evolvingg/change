@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style>
+	img{
+		height:00px;
+		width:00px;
+	}
+ .outer{
+   /* height:500px;
+   width:500px;
+    position: relative;
+    border:2px solid black;*/
+    display:table;
+    border:2px solid green;
+  }
+  .inner,.inner2{
+    height:200px;
+    width:200px;
+    /*position:absolute;
+    top:50%;
+    left:50%;
+    border:2px solid red;
+    transform:translate(-50%,-50%);*/
+    display:table-cell;
+    vertical-align:middle;
+    border:2px solid red;
+    position:absolute;
+  }
+  .inner2{
+    left:800px;
+  }
+	</style>
+</head>
+<body>
+    <img src="mona.jpg"/>
+    <img src="tom.jpg"/>
+
+    <div class="outer">
+    outer
+        <div class="inner">
+           inner
+        </div>
+        <div class="inner2">
+        inner2
+        </div>
+    </div>
+
+   <script>
+   var el=document.getElementsByTagName('img');
+   for(var i=0; i<el.length;i++){
+   		el[i].onclick=change;
+   }
+
+   function  change(e){
+   		var el = e.target.getAttribute('src');
+   		var obj={img:e.target,src:el};
+   		e.target.setAttribute('src',(e.target.getAttribute('src').split('.')[0]+'unblur.jpg'));
+   		setTimeout(reblur,1000,obj);   		
+   }
+   function reblur(obj){
+   		(obj.img).setAttribute('src',obj.src);
+   }
+   </script>
+</body>
+</html>

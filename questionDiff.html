@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style>
+	img{
+		height:400px;
+		width:400px;
+	}
+  .imp{
+    text-align: center;
+    padding:20px;
+   // position:absolute;
+   // top:50%;
+   // left:50%;
+   // transform:translate(-50%,-50%);
+
+  }
+  .container{
+    position:relative;
+  }
+	</style>
+</head>
+<body>
+<div class="container">
+  <div class="imp">
+    <img src="mona.jpg"/>
+    <img src="tom.jpg"/>
+  </div>
+  </div>
+
+  <div id='chk'>div for testing</div>
+
+   <script>
+
+   var el=document.getElementsByTagName('img');
+   for(var i=0; i<el.length;i++){
+   		el[i].onmouseover=change;
+      el[i].onmouseout=reblur;
+   }
+
+   function  change(e){
+   		var el = e.target;
+   		el.setAttribute('src',(el.getAttribute('src').split('.')[0]+'unblur.jpg'));   		
+   }
+   function reblur(e){
+      var el = e.target;
+   		el.setAttribute('src',(el.getAttribute('src').replace('unblur.jpg','.jpg')));
+   }
+
+   var myobj={
+        name:'tan',
+        retObject:   function(elem){
+                       elem.style.color='blue';
+                       console.log('rtttttttttttttttt::::::::::::::::',elem);
+                      return elem;
+                     }
+            };
+
+
+   myobj.prototype=newChange();
+   function newChange(){
+      console.log('ttttttttr:::',this);
+     (this).style.backgroundColor='yellow';
+   }
+
+   myobj.retObject(document.getElementById('chk')).newChange();
+
+   myobj.retObject(document.getElementById('chk'));
+
+   </script>
+</body>
+</html>

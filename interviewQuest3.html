@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>1mg</title>
+</head>
+<body>
+
+<script type="text/javascript">
+	String.prototype.addSpace=function(){
+		var s=[],i=0;
+		for(i=0;i<this.length;i++){
+			if(this[i]!==' '){
+				s.push(this[i]);
+				s.push(' ');
+			}
+		}
+		s.length=s.length-1;
+		return s.join('');
+	};
+
+	var s= new String('hello   world');
+	console.log(s.addSpace());
+
+	const smartPhones = [
+	{name:'iphone',price:90},
+	{name:'galaxy5',price:23},
+	{name:'redmi',price:89}];
+
+	var prices= smartPhones.map(smrt=>{return smrt.price});
+	console.log(prices);
+
+
+</script>
+</body>
+</html>

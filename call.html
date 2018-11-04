@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <style>
+            .new{
+                height:100px;
+                width:100px;
+                border:2px solid black;
+            }
+            </style>
+    </head>
+    <body>
+
+        <div class="new">
+        </div>
+        <div>
+            hkshkahkdh
+        </div>
+    </body>
+            <script>
+            var elem=document.querySelector('.new');
+            
+             var person ={
+                 name:'john',
+                 does: function(what){
+                     console.log(this.name +' says '+ what);
+                     return true;
+                 }
+             }
+             elem.html=person.does('world');
+
+             console.log('without call apply:\n');
+             console.log(person.does('world'));
+             console.log('with call:\n');
+             console.log(person.does.call({name:'tan'},'world'));            
+             console.log('with apply:\n');
+             console.log(person.does.apply({name:'tannu'},['1','2','3']));
+
+
+             greet();
+function greet(){
+    console.log("Hi");
+    alert('sadkj');
+}
+            </script>
+</html>

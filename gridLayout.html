@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+	.containerGrid{
+		border:2px solid red;
+		width:100%;
+		opacity:2;
+	}
+	.row{
+		border:2px solid green;
+		width:100%;
+		display: flex;
+	}
+	.detailsSection{
+		position:fixed;
+		top:50%;
+		left:50%;
+		transform:translate(-50%,-50%);
+		opacity:4;
+		background-color: yellow;
+	}
+	.dontshow{
+		display:none;
+	}
+	.cell{
+		width:20%;
+		border:2px solid green;
+	}		
+	.image{
+		width:80%;
+	}
+	.cross{
+		position: absolute;
+		top:0;
+		right:0;
+		cursor:pointer;
+	}
+	ul#d li{
+		list-style-type: none;
+	}
+	.pages li{
+		display:inline;
+		list-style-type: none;
+	}
+	</style>
+</head>
+<body>
+	<h1>Users</h1>
+	<ul class='pages'></ul>
+	<div class="containerGrid">
+		
+	</div>
+	<div class="detailsSection dontshow">
+	<span class="cross">X</span>
+		</div>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript">
+		$(document).ready(function(){
+			var $container=$('.containerGrid');
+			$.get('https://api.github.com/users?since=135',function(data,status){
+				var $row,i;
+				for(var i=0;i<data.length;i++){
+					$('.pages').append('<li>'+'Page'+(i+1)+'</li>');
+				}
+				for(var i=0;i<data.length;i++){
+					if(i%5===0){
+						$row=$('<div class="row"></div>');
+						$container.append($row);
+					}
+					createCell(data[i],$row);
+				}
+			})
+
+			function createCell(item,$row){
+				var $cell=$('<div class="cell"></div>');
+				var $avatar=$('<img class="image"/>');
+				$row.append($cell);
+				$cell.html(item.login);
+				$cell.append($avatar);
+				$avatar.attr('src',item.avatar_url);
+				$avatar.click(function(){showDetails(item)});
+			}
+
+			function showDetails(item){
+				var $list;
+				var $listed=$('<ul id="d"></ul>');
+				$container.css('opacity','0.6');
+				$container.css('pointerEvents','none');
+				var $content=$('.detailsSection').removeClass('dontshow');
+				$content.append($listed);
+				for(var index in item){
+					console.log(item[index]);
+					$list=$('<li></li>');
+					$list.html(item[index]);
+					$listed.append($list);
+				}
+				$('.cross').click(function(e){
+					$container.css('opacity','2');
+					$container.css('pointerEvents','auto');
+					$('.detailsSection').addClass('dontshow');
+					$('#d').remove();
+				})
+			}
+		});
+</script>
+</html>

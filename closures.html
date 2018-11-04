@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	
+	<style type="text/css">
+		.first{
+			border:2px solid green;
+			height:50px;
+			width:50px;
+		}
+		.second{
+            border:2px solid red;
+            height:50px;
+			width:50px;
+			float:left;
+		}
+		.third{
+			height:50px;
+			width:50px;
+			border:2px solid black;
+			float:left;
+		}
+		.fourth{
+			height:50px;
+			width:80px;
+			border:2px solid orange;
+		}
+	</style>
+</head>
+<body >
+hello world
+<div class="first col-sm-2"></div>
+<div class="second col-sm-4"></div>
+<div class="third col-sm-6">hello</div>
+<div class="fourth col-sm-4">weerwrwrwr</div>
+</body>
+<script>
+console.log("1st example....................");
+function celebIDCreate(){
+	var celebID=999;
+	return {
+		getID:function(){
+			return celebID;
+		},
+		setID:function(newID){
+			celebID=newID;
+		}
+	}
+}
+var mjID=celebIDCreate();
+
+console.log(mjID.getID());
+mjID.setID(567);
+console.log(mjID.getID());
+
+console.log("wqeeeeeeeeeeeeeeeeeeweqqqqqqqqq");
+var m=celebIDCreate();
+console.log(m.getID());
+
+console.log("qwwwwwwwwqqqqqqqqqqqqqqqqqq");
+console.log("2nd example.............................");
+function celebIDCreator(theC)
+{
+	var i;
+	var uniqueID=100;
+	for(i=0;i<theC.length;i++)
+	{
+		theC[i]["id"]=function(){
+			return uniqueID+i;
+		}
+	}
+	return theC;
+}
+var actionCeleb=[{name:"Stallone",id:0},{name:"Cruise",id:0},{name:"Willis",id:0}];
+
+var createForAction=celebIDCreator(actionCeleb);
+var stallone=createForAction[0];
+console.log(stallone.id());
+
+var data;
+
+var dataReadyEvent = document.createEvent("Event");
+dataReadyEvent.initEvent("dataReady", true, false);
+
+console.log("qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq");
+function DataObject() {
+    this.name = "Data Object";
+    this.data = function () {
+        return data;
+    }
+    this.onDataCompleted = dataReadyHandler;
+    document.addEventListener('dataReady', this.onDataCompleted.bind(this));
+    // To see the result of not using bind, comment out the preceding line, 
+    // and uncomment the following line of code.
+    // document.addEventListener('dataReady', this.onDataCompleted);
+}
+function dataReadyHandler() {
+    if (console && console.log) {
+        console.log("Data object property value: " + this.name);
+        console.log("Data object property value: " + this.data());
+    }
+}
+
+setTimeout(function () {
+    data = [0, 1, 2, 3];
+    document.dispatchEvent(dataReadyEvent);
+    }, 5000);
+
+
+</script>
+</html>

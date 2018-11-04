@@ -1,0 +1,21 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>promiseex</title>
+</head>
+<body>
+<div id='root'>here we go</div>
+</body>
+<script>
+
+var promise1 = new Promise(function(resolve, reject) {
+  setTimeout(resolve, 100, 'foo');
+  setTimeout(reject,100,'bar');
+});
+
+document.getElementById('root').innerHTML=promise1;
+console.log(promise1);
+
+</script>
+</html>

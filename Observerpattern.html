@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <script type="text/javascript">
+    function BirthdayEvent() {
+        this.guest = [];
+    }
+    BirthdayEvent.prototype = {
+        subscribe: function(guest_h) {
+            this.guest.push(guest_h);
+
+        },
+        unsubscribe: function(guest_h) {
+
+            this.guest = this.guest.filter(function(item) {
+                if (item != guest_h) {
+
+                    return item;
+
+                } else {
+                    console.log(guest_h.name + " what a pity u r not coming");
+                }
+            });
+        },
+
+        execute: function(evtDetail) {
+            this.guest.forEach(function(item) {
+                item.call(window, evtDetail); // here window is calling each guesthandler
+
+                // or item(evtDetail);
+            });
+        }
+
+            show: function() {
+            for (var k in guest) {
+                c += k.name
+            }
+            window.alert(c);
+        }
+    }
+
+    function guestHandler(evt) {
+        this.name = 'guest1';
+        console.log('Welcome ' + name + "  " + evt);
+    }
+
+    function guestHandler1(evt) {
+        this.name = 'guest2';
+        console.log('Welcome ' + name + "  " + evt);
+    }
+
+    function specialGuest(evt) {
+        console.log("Welcome Special guest ,u will only get the drinks");
+    }
+
+    var partyPerson = new BirthdayEvent();
+    partyPerson.subscribe(guestHandler);
+    partyPerson.subscribe(guestHandler1);
+    partyPerson.subscribe(guestHandler);
+    partyPerson.subscribe(specialGuest);
+    partyPerson.execute('My Birtday hurrayyy'); //.execute is used to actually trigger the eventi.e here the day on which birthday is in this we will call other guesthandlers
+
+    partyPerson.unsubscribe(guestHandler);
+    partyPerson.execute('Bachelore party hurrayyy'); //here also all the handler will be called
+    //when we unsubscribe it is done in aerial manner,i.e first al the guesthandler,guesthandler1,specialguest will run then after that guestHandler will be unsubscribed for future use.
+
+    //calling two same eventhandler will unsubcribe all of ame type at a go
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+		<div>Div<p>para</p></div>
+</body>
+<script>
+	// var elem=document.querySelectorAll('*');
+	// for(var i=0;i<elem.length;i++){
+	// 	elem[i].addEventListener('click',alert(JSON.stringify({'tom':elem[i].tagName})),false);
+	// 	elem[i].addEventListener('click',alert(JSON.stringify({'jerry':elem[i].tagName})),false);
+	// }
+
+	var length=5;
+	let obj={
+		length:6,
+		call: function(){
+			console.log(this.length);
+		}
+	}
+	var newCall= obj.call;
+	var a;
+	newCall();
+	obj.call();
+	function el(){
+		arguments[0].call();
+		newCall();
+	}
+	el(obj,newCall)
+
+function reverse(input){
+	var l=input.length;
+    var i=0,word='',c=0,st='';
+    input=input+' ';
+    for(i=0;i<input.length;i++)
+    {
+        if(input[i]!==' ')
+            word=input[i]+word;
+        else
+        {       
+         c++; 
+         if(c==1)
+         	st=st+word;
+         else  
+         	st=st+' '+word;
+         word='';
+        }
+     }
+ return st;
+}
+
+//console.log(reverse('i want to say hello world'));
+// function promiseWrapper(){
+// 	new promise().then(){
+// 	resolve(3);
+// 	reject(1);
+// 	resolve(2);
+// 	}
+// }
+
+// console.log(new promiseWrapper(console.log,console.error))
+
+function hey(){
+	var prop=10;
+	return prop;
+}
+var f= new hey();
+console.log(f);
+console.log(hey());
+
+var resolvedProm = Promise.resolve(33);
+var er = Promise.reject(12);
+
+var thenProm = resolvedProm.then(function(value){
+    console.log("INSIDEthis gets called after the end of the main stack. the value received and returned is: " + value);
+    return value;
+});
+
+var rejected=er.then(function(val){
+	console.error('qwwwwwwwwwww'+val);
+	console.log(console.log,console.error)
+	return val;
+})
+
+console.log('juuiiu',thenProm);
+console.log('erroneous',rejected);
+console.log(console.log,console.error)
+
+setTimeout(function(){
+    console.log(thenProm);
+});
+
+
+
+var p1 = new Promise( (resolve, reject) => {
+  //resolve('Success!inpromise');
+  // or
+   reject ("Error!in promise");
+} );
+
+p1.then(reason => {
+  console.log(reason,'sddddddddddddddddd'); // Error!
+}, value => {
+  console.log(value,'dsaaaaaaasdaaaaaaaaaaaaaaa'); // Success!
+}  );
+
+
+Promise.resolve('foo')
+  .then(function(string) {
+    return new Promise(function(resolve, reject) {
+      setTimeout(function() {
+        string += 'bar';
+        resolve(string);
+        console.log(string);
+      }, 0);
+    });
+  })
+  .then(function(string) {
+    setTimeout(function() {
+      string += 'baz';
+      console.log(string);
+    }, 0)
+    return string;
+  })  
+  .then(function(string) {
+  	setTimeout(function(){
+    console.log("Last Then:  oops... didn't bother to instantiate and return " +
+                "a promise in the prior then so the sequence may be a bit " + "surprising ");
+
+    // Note that `string` will not have the 'baz' bit of it at this point. This 
+    // is because we mocked that to happen asynchronously with a setTimeout function
+    console.log('last:',string);
+}, 0);
+  });
+
+</script>
+</html>
