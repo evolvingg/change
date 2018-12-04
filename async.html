@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+</body>
+<script>
+	console.log('person1:shows ticket');
+	console.log('person2 :shows tocket');
+
+	const promis=new Promise((resolve,reject)=>{
+		setTimeout(()=>{
+			resolve('resolved');
+		},3000)
+	});
+	promis.then((t) => {
+		console.log(`person3: ${t}`);
+	});
+	console.log('person4');
+	console.log('person5');
+</script>
+</html>
