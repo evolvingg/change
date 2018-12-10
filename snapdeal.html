@@ -9,10 +9,14 @@
 		.header {
 			height:250px;
 			background-color:red;
+			position: fixed;
+			top:0;
+			left:0;
+			right:0;
 		}
 		section {
 			background-color: yellow;
-			min-height:200px;
+			height:200px;
 		}
 		nav{
 			background-color: yellow;
@@ -31,20 +35,25 @@
 		footer{
 			height:250px;
 			background-color: green;
-			/*position: absolute;
-			bottom:0;*/
+			position:absolute;
+			bottom:0;
+			right:0;
+			left:0;
+		}
+		* {
+			box-sizing:border-box;
 		}
 	</style>
 </head>
 <body>
 
 	<div class="container">
-		<header class="header"></header>
+		<header class="header">header</header>
 		<section>
 			<nav>shakjdh</nav>
 			<article>ojwqieio</article>
 		</section>
-		<footer></footer>
+		<footer>footer</footer>
 	</div>
 
 </body>
