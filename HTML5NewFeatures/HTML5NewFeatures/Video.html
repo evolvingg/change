@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
+
+    <script>
+
+        if (Modernizr.video) {
+            //alert('Video supported !')
+           // document.write('Video Supported !')
+        }
+
+
+    </script>
+
+</head>
+<body>
+
+    <!--onpause="alert('Paused !')"-->
+    <video 
+           controls="controls" 
+           onmouseover="this.pause()" 
+           onmouseout="this.play()"          
+           autoplay>
+
+        <source type="video/3gpp" src="happyfit2.3gp" />
+        <source type="video/mp4" src="happyfit2.mp4" />
+        <source type="video/mpeg" src="happyfit2.mpeg" />
+        <source type="video/ogg" src="happyfit2.ogg" />
+
+        <track label="English" kind="subtitles" src="Subtitles-en.vtt" srclang="en" default />
+        <track label="Hindi" kind="subtitles" src="Subtitles-hi.vtt" srclang="hi"  />
+        <track label="Espanol" kind="subtitles" src="Subtitles-es.vtt" srclang="es" />
+
+    </video>
+</body>
+</html>

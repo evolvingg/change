@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Handlebars Tutorial</title>
+</head>
+<body>
+	<div id="targetDiv"></div>
+	
+	<script type="text/javascript" src="../handlebars-v4.0.5.js"></script>
+	<script type="text/javascript">
+		var rawTemplate = "<p>My name is {{name}} and I live at {{street}} in {{city}}, {{state}}</p>";
+		var preCompiledTemplate = Handlebars.compile(rawTemplate);
+		var data = {
+			name: "Derek", 
+			street: "123 Main St", 
+			city: "Pittsburgh", 
+			state: "PA"
+		};
+		var html = preCompiledTemplate(data);
+		document.getElementById('targetDiv').innerHTML += html;
+	</script>
+</body>
+</html>

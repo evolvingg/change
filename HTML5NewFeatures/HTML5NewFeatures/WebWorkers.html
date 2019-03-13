@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script>
+
+
+        // Restrictions on WebWorkers
+        // 1. Cant use use DOM api | no document | no window object
+        // 2. Can make use of XMLHttpRequest
+        // 3. Can make use of any other Javascript objects
+        // 4. onmessage | onerror  events
+        // 5. can't access global variable from main thread !
+        var i = 0;
+        var worker = new Worker('initArray.js');
+        worker.addEventListener('message', function () { })
+        // OR      
+        worker.onmessage = function (evt) {
+            alert('Array initialized !');
+
+            var dataFromWorkerThread = evt.data; // the data(array) returned from initArray.js
+            alert(dataFromWorkerThread[100][100]);
+            console.log(dataFromWorkerThread);
+        }
+
+
+        worker.postMessage('Hello !'); // start the thread ! necessary to pass one required argument !
+
+
+        function Increement() {
+            console.log(i++);
+        }
+
+        
+        function TerminateWorker() {
+            worker.terminate();// it kills the webworker !
+        }
+
+    </script>
+</head>
+<body>
+    <input type="button" id="btn" value="Increement" onclick="Increement()" />
+
+
+    <input type="button" id="btnTerminate" value="Terminate" onclick="TerminateWorker()" />
+
+</body>
+</html>

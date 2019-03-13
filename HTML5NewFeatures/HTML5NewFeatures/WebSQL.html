@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+
+    
+
+</head>
+<body>
+
+
+    <p id="data">
+
+    </p>
+
+</body>
+
+<script>
+
+
+    var db = openDatabase('TestDB','1.0','This is webSQL test',2*1024*1024);
+
+    db.transaction(function (tx) {
+
+        tx.executeSql('Create table if not exists MYLOGS(logid unique,logmsg)');
+        tx.executeSql("Insert into MYLOGS(logid,logmsg) values (100,'First Log Message !')");
+        tx.executeSql("Insert into MYLOGS(logid,logmsg) values (200,'Important Log Message !')");
+        tx.executeSql("Insert into MYLOGS(logid,logmsg) values (300,'Exceptions Logged !')");
+
+    });
+
+
+    db.transaction(function (tx) {
+        tx.executeSql('Select * from MYLOGS', [],
+            function (tx, resultData) {
+
+                var para = document.getElementById('data');
+                para.innerHTML = resultData.rows.item(0).logid +
+                    " " + resultData.rows[0].logmsg;
+            });
+
+    });// eof
+
+</script>
+
+</html>

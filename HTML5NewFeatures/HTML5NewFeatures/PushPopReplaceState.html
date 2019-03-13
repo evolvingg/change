@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <link href="bootstrap.css" rel="stylesheet" />
+    <style>
+
+        #divContainer{
+          
+            height:100px;
+            width:400px;
+        }
+
+        input[type=button]{
+            float:left;
+             margin:20px;
+            padding:2px;
+        }
+
+        #result{
+            width:900px;
+            height:400px;
+            background-color:orange;
+            border:3px solid black;
+            border-radius:10px;
+        }        
+
+    </style>
+
+    <script>
+
+        function ManageState() {
+
+            if (event.target.id == 'btnArticle') {
+                history.pushState({ msg: 'button Atricle !' }, 'Article', 'Article');
+            }
+            if (event.target.id == 'btnPost') {
+                history.pushState({ msg: 'button Post !' }, 'Post', 'Post');
+            }
+            if (event.target.id == 'btnNewspaper') {
+                history.pushState({ msg: 'button News !' }, 'NW', 'News');
+            }
+        }
+
+        window.addEventListener('popstate', function (e) {
+            var d = document.getElementById('result');
+            d.innerHTML = '<h1> ' + e.state.msg + '</h1>';
+        });
+
+    </script>
+</head>
+<body>
+
+
+    <div id="divContainer">
+        <input type="button" id="btnArticle" class="btn btn-info" value="Article" onclick="ManageState()" />
+        <input type="button" id="btnPost" class="btn btn-info" value="   Post   " onclick="ManageState()" />
+        <input type="button" id="btnNewspaper" class="btn btn-info" value="Newspaper" onclick="ManageState()" />
+    </div>
+
+
+    <div id="result">
+
+    </div>
+
+</body>
+</html>

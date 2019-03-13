@@ -1,0 +1,19 @@
+{
+	"name": "Manvendra Singh",
+	"oracleId": 114814,
+	"city": [
+		{
+			"name": "Udaipur",
+			"value": "UDZ",
+			"state": "Rajasthan"
+		},
+		{
+			"name": "Bangalore",
+			"value": "BLR"
+		},
+		{
+			"name": "Gurgaon",
+			"value": "GGN"
+		}
+	]
+}

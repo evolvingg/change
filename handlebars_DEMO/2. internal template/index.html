@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Handlebars Tutorial</title>
+</head>
+<body>
+	<div id="targetDiv"></div>
+	
+	<script type="text/javascript" src="../handlebars-v4.0.5.js"></script>
+	
+	<script type="text/x-handlebars-template" id="rawTemplate">
+		<h3>Favorite {{name}} Quotes</h3>
+	</script>
+	
+	<script type="text/javascript">
+		var rawTemplate = document.getElementById("rawTemplate").innerHTML;
+		var preCompiledTemplate = Handlebars.compile(rawTemplate);
+		var data = {
+			name: "Shakespeare"
+		};
+		var html = preCompiledTemplate(data);
+		document.getElementById('targetDiv').innerHTML += html;
+	</script>
+</body>
+</html>

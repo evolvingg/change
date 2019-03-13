@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+   <!--  open the connection
+    //register for onreadystatechange
+    //make a request
+    //when the repons e arrives show d response
+  -->  
+<title>Insert title here</title>
+  <script>
+  var url="posteg.php";//.php,.asp
+  
+    function MakeAJAXifiedrequest()
+    {
+  var txtunam=document.getElementById('txtusername');
+  var txtcompany=document.getElementById('txtcompany');
+  var datatobesent="uname="+
+                    txtunam.value +
+                    "&company=" +
+                    txtcompany.value;
+    var xmlHttpreq=new XMLHttpRequest();
+
+    url +="?"+datatobesent; 
+  
+    xmlHttpreq.onreadystatechange = function(){
+       if( xmlHttpreq.readyState ===4  &&  xmlHttpreq.status==200)
+    	   {
+    	   //show d mesg
+    	   var divt=document.getElementById('target');
+    	   divt.innerHTML = xmlHttpreq.responseText;
+    	   alert('request completed successfully');
+    	   }
+           //eof onreadystatechange
+    	   }
+    	xmlHttpreq.open('GET',url,true);   //configuration
+    	//xmlHttpreq.open('POST',url);
+    	xmlHttpreq.send();// makes async request
+    }
+    
+    
+    
+  </script>
+
+</head>
+
+<body>
+<input type="text" id="txtusername" placeholder="name">
+<input type="text" id="txtcompany" placeholder="company">
+
+
+<div id="target">
+
+
+</div>
+
+<input type="button" value="get server data...."
+       onclick="MakeAJAXifiedrequest()"/>
+
+
+
+</body>
+</html>

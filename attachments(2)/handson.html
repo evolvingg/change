@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <style type="text/css">
+    .image {
+        display: inline-block;
+    }
+    
+    div img {
+        border-radius: 50%;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="image">
+        <img src="flow.jpg" height="300" width="300" onclick="ManageState()" id="image1">
+    </div>
+    <div class="image">
+        <img src="penguins.jpg" height="300" width="300" onclick="ManageState()" id="image2">
+    </div>
+    <div class="image">
+        <img src="light.jpg" height="300" width="300" onclick="ManageState()" id="image3">
+    </div>
+    <div class="image">
+        <img src="fle2.jpg" height="300" width="300" onclick="ManageState()" id="image4">
+    </div>
+    <div id="result">
+    </div>
+</body>
+<script type="text/javascript">
+var persondetail;
+
+function ManageState() {
+    if (event.target.id == 'image1') {
+        history.pushState({
+            msg: persondetail.data[0]
+        }, 'image1', 'image1');
+        imagedetailing(persondetail.data[0]);
+    }
+    if (event.target.id == 'image2') {
+        history.pushState({
+            msg: persondetail.data[1]
+        }, 'image2', 'image2');
+        imagedetailing(persondetail.data[1]);
+    }
+    if (event.target.id == 'image3') {
+        history.pushState({
+            msg: persondetail.data[2]
+        }, 'image3', 'image3');
+        imagedetailing(persondetail.data[2]);
+    }
+    if (event.target.id == 'image4') {
+        history.pushState({
+            msg: persondetail.data[3]
+        }, 'image4', 'image4');
+        imagedetailing(persondetail.data[3]);
+    }
+}
+
+window.addEventListener('DOMContentLoaded', MakeAJAXified);
+window.addEventListener('popstate', function(e) {
+    imagedetailing(e.state.msg);
+
+
+});
+
+function MakeAJAXified() {
+    var xmlHttpreq = new XMLHttpRequest();
+    xmlHttpreq.onreadystatechange = function() {
+        if (xmlHttpreq.readyState === 4 && xmlHttpreq.status === 200) {
+            persondetail = JSON.parse(xmlHttpreq.responseText);
+        }
+    }
+    xmlHttpreq.open('GET', 'datafile.json', true);
+    xmlHttpreq.send();
+
+}
+
+function imagedetailing(msg) {
+    var keys = [];
+    var coll = msg;
+    document.getElementById('result').innerHTML = "";
+    for (var key in coll) {
+        keys.push(key);
+        console.log(keys);
+        document.getElementById('result').innerHTML += "<br>" + coll[key];
+    }
+
+}
+</script>
+
+</html>

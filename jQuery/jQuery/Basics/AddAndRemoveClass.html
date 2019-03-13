@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <style>
+
+        .Even {
+            border:2px solid red;
+        }
+
+        .Selected{
+            background-color:orange;
+        }
+
+    </style>
+    <script src="jquery-3.1.0.js"></script>
+    <script>
+
+        $(document).ready(function () {
+            
+            $('#btnAddClass').click(function () {
+
+                $('#targetDiv').addClass("Even");
+                $('#targetDiv').addClass("Selected");
+
+            });
+
+            $('#btnRemoveClass').click(function () {
+                $('#targetDiv').removeClass("Even");              
+
+            });
+
+            $('#btnToggleClass').click(function () {
+                $('#targetDiv').toggleClass("Even");
+            });
+
+        });
+
+    </script>
+</head>
+<body>
+    <div id="targetDiv">
+        Style applied !
+    </div>
+    <input type="button" id="btnAddClass" value="Add Class !" />
+    <input type="button" id="btnRemoveClass" value="Remove Class !" />
+    <input type="button" id="btnToggleClass" value="Toggle Class !" />
+
+</body>
+</html>

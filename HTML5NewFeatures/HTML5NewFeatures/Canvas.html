@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <style>
+        canvas{
+           
+            border:2px solid red;
+        }
+
+
+    </style>
+</head>
+<body>
+
+    <canvas id="canvas">
+        Canvas not supported ! Upgrade or perish !
+    </canvas>
+
+    <script>
+          var d;
+          console.log("111111111111111111111");
+          console.log(d==false);
+          console.log("66666666666666666666");
+
+        //var elm = document.createElement('canvas');
+
+        //if (elm.getContext) {
+
+        //}
+
+
+        try{
+            var cnv = document.getElementById('canvas');
+            var ctx = cnv.getContext('2d');
+            ctx.beginPath();
+           // ctx.translate(50, 50);
+            //ctx.moveTo(0, 0);
+            //ctx.lineTo(100, 100);
+            //ctx.closePath();
+            //ctx.lineWidth = 3;
+            //ctx.strokeStyle = "black";
+
+            ctx.translate(180, 180); // changing the origin
+            ctx.moveTo(-25, -50); // top-left corner 
+            ctx.lineTo(-10, -80);
+            ctx.lineTo(-20, -80);
+            ctx.lineTo(-5, -110);
+            ctx.lineTo(-15, -110);
+            // another half
+            ctx.lineTo(0, -140);
+            ctx.lineTo(15, -110);
+            ctx.lineTo(5, -110);
+            ctx.lineTo(20, -80);
+            ctx.lineTo(10, -80);
+            ctx.lineTo(25, -50);
+            ctx.closePath();
+            ctx.strokeStyle = "brown";
+            ctx.lineWidth = 5;
+            ctx.stroke(); // drawing !
+
+            ctx.fillStyle = "green";
+            ctx.fill();
+        }
+        catch(ex){
+            console.error(ex.message);
+        } finally {
+            ctx = null;
+        }
+
+
+
+    </script>
+</body>
+</html>

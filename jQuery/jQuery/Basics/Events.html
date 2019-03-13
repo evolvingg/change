@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <style>
+
+        .Hovered{
+            background-color:orange;
+        }
+
+    </style>
+    <script src="jquery-3.1.0.js"></script>
+    <script>
+
+        $(document).ready(function () {
+
+            //$('#targetBtn').one('click', function () {
+            //    alert('this executes just once !');
+            //});
+
+            //$('#targetBtn').bind('click', function () {
+            //    alert('Used with bind !');
+            //});
+
+            //$('#targetBtn').bind('mouseleave mouseenter', function () {
+            //    $(this).toggleClass('Hovered');
+            //});
+
+            //function  UsedWithBind() {
+            //    alert('Used with bind !');
+            //}
+
+            //$('#targetBtn').bind('mouseleave mouseenter', UsedWithBind);
+
+            //$('#targetBtn').unbind('mouseleave', UsedWithBind);
+
+
+            //$('p').hover(function () {
+            //    $(this).toggleClass('Hovered');
+            //});
+
+
+            function OnHandler() {
+                $(this).toggleClass('Hovered');
+            }
+
+            $('#targetBtn').click(function () {
+                $('<p> New Para !</p>').appendTo('#container');
+            });
+
+            $('#container').on('mouseenter mouseleave', 'p', OnHandler);
+            //$('#container').off('mouseenter', 'p', OnHandler);
+
+        });
+
+    </script>
+</head>
+<body>
+
+
+    <div id="container">
+
+        <p id="first"> Paragraph !</p>
+        <p id="second"> Paragraph !</p>
+    </div>
+
+
+    <input type="button" id="targetBtn" value="Click me !" />
+
+
+    <p> Outside para ! </p>
+
+</body>
+</html>

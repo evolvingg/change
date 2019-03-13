@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+
+    <style>
+
+        
+        .Hovered{
+            background-color:orange;
+        }
+
+    </style>
+
+    <script src="jquery-3.1.0.js"></script>
+    <script>
+
+        $(document).ready(function () {
+
+            //$('#targetDiv').mouseover(function () {
+            //    $(this).addClass('Hovered');
+            //});
+
+            //$('#targetDiv').mouseout(function () {
+            //    $(this).removeClass('Hovered');
+            //});
+
+            $('#targetDiv')
+           .hover(function () {
+               // $(this).toggleClass('Hovered');
+               console.log('This is called on hover (toggle state mouse over)')
+           }, function () {
+               console.log('This is called on hover (toggle state mouse out)')
+
+           });
+
+        });
+
+    </script>
+</head>
+<body>
+
+    <div id="targetDiv">
+        Hover Here !
+    </div>
+
+</body>
+</html>

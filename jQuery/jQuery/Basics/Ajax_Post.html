@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="jquery-3.1.0.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            $('#btnSubmit').click(function () {
+
+                $.post('PostExample.php',
+                    { uname: $('#txtUsername').val() })
+                    .done(function (responseFromServer) {
+                        $('#targetDiv').html(responseFromServer);
+                    });// eof done
+
+            });    // of click      
+
+        });// eof ready
+
+    </script>
+</head>
+<body>
+    Click the button to get the message from the server ! <br/>
+    Name : <input type="text" id="txtUsername" /><br/>
+
+    <input type="button" value="Submit" id="btnSubmit"/>
+
+
+    <hr/>
+    <div id="targetDiv">
+
+
+    </div>
+
+</body>
+</html>

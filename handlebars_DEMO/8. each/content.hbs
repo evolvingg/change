@@ -1,0 +1,23 @@
+<div>{{name}}</div>
+
+<div>{{oracleId}}</div>
+
+<div>
+	<select>
+		<option>Select City</option>
+		{{!-- this, @index(array), @key(object), @first, @last --}}
+		{{!-- each can also iterate over objects - @last don't work here --}}
+		{{!-- @../index to access parent index --}}
+		{{#each city}}
+		<option value="{{value}}">
+			{{#if @first}}
+				{{@index}}. {{name}}-{{state}}
+			{{else}}
+				{{@index}}. {{name}}
+			{{/if}}
+		</option>
+		{{else}}
+		<option>No City available</option>
+		{{/each}}
+	</select>
+</div>

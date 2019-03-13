@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="jquery-3.1.0.js"></script>
+    <script>
+
+        $(document).ready(function () {
+            //$('div:first').next().css('background-color', 'orange');
+           // $('div:last').prev().css('background-color', 'orange');
+           //    $('div').prev('p#unique').css('background-color', 'orange');
+            $('div.a').text($('div.b').html());
+        });
+
+    </script>
+</head>
+<body>
+    <span> Span before div !</span>
+    <div>
+        First Div !
+    </div>
+    <p id="unique">
+        Para between first and Middle div !
+    </p>
+    <div>
+        Middle Div !
+    </div>
+    <p>
+        Para between last and Middle div !
+    </p>
+    <div>
+        Last Div !
+    </div>
+
+    <div class="a">
+
+    </div>
+
+    <div class="b">
+        This is the innerHTML of  <b> div b ! </b>
+    </div>
+
+</body>
+</html>

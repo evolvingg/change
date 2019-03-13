@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+
+    <script src="jquery-3.1.0.js"></script>
+    <script>
+
+
+        $(document).ready(function () {
+            //$.get('DateInPhp.php', function (resp, status, xmlXHR) {
+            //    $('#targetDiv').html(resp);
+            //    alert('Respose received from Server !');
+            //}).fail(function () {
+            //    alert('something went wrong !');
+            //});
+
+
+            //$.getJSON('MyJsonData.js', function (data) {
+            //    console.log("JSON received ! " +  data.Name +  " " + data.Location)
+            //});
+
+            //$.getScript('MyScripts.js', function () {
+            //    myModule.add(); 
+            //});
+
+            $('#targetDiv').load('Data.html');
+
+        });
+
+    </script>
+
+
+</head>
+<body>
+
+    <div id="targetDiv">
+
+    </div>
+
+</body>
+</html>

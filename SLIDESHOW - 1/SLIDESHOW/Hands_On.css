@@ -1,0 +1,61 @@
+.image {
+    position: relative;
+    height: 90%;
+}
+
+ul {
+    height: 600px;
+    list-style-type: none;
+    display: inline-block;
+    border: 3px solid red;
+    margin: 0px;
+    padding: 0;
+    white-space: nowrap;
+    width: 1288px;
+    overflow: hidden;
+    background-color: #ddd;
+}
+
+.imageSlide {
+    height: 100%;
+    width: 70%;
+    transition: translate 2.0s ease;
+}
+
+.back-button {
+    border-radius: 50%;
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    font-size: 60px;
+    text-align: center;
+    height: 70px;
+    width: 70px;
+    position: absolute;
+    cursor: pointer;
+    top: 40%;
+}
+
+.titleCenter {
+    text-align: center;
+    margin-top: -372px;
+    margin-left: -295px;
+    color: white;
+    font-size: 48px;
+}
+
+.forward-button {
+    border-radius: 50%;
+    height: 70px;
+    width: 70px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    font-size: 60px;
+    text-align: center;
+    font-weight: bold;
+    float: right;
+    position: absolute;
+    top: 40%;
+    right: 0%;
+    cursor: pointer
+}

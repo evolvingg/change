@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Page5</title>
+	<script>
+	function go()
+      {
+      	 var mykey=document.querySelector('input');
+         localStorage[mykey]-=1;
+         var count=localStorage[mykey];
+         history.go(count);
+      }
+
+	</script>
+</head>
+<body>
+<input type="button" value="home" onclick="go()"/>
+</body>
+</html>

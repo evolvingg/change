@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="jquery-3.1.0.js"></script>
+    <script>
+        
+        $(document).ready(function () {
+
+            // $('#beverages').append('<li> Coffee ! </li>');  // last Child
+          //  $('#beverages').prepend('<li> Coffee ! </li>');  // firstChild
+           // $('<li> Coffee ! </li>').appendTo('#beverages');
+
+           // $('span').unwrap();// deletes the parent
+         //    $('span').wrap('<b></b>'); // makes b as immediate parent !
+          //  $('span').wrapInner('<b></b>'); // makes b as immediate child of span !
+
+           $('span').wrapAll('<div id="AllSpans"></div>');// wraps div as parent for all spans collectively !
+        });
+
+
+    </script>
+
+</head>
+<body>
+
+    <div id="targetDiv">
+        <span> Span in div ! </span>
+    </div>
+
+
+    <ul id="beverages">
+        <li>Tea</li>
+        <li>Green Tea</li>
+        <li>Lemon Tea</li>
+    </ul>
+
+    <span> Some bold text here !</span>
+
+</body>
+</html>

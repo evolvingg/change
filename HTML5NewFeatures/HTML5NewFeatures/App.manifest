@@ -1,0 +1,14 @@
+﻿CACHE MANIFEST
+#versionNo:1.0
+
+CACHE:
+SVG.html
+jsUnitStyle.css
+WebSockets.html
+
+FALLBACK:
+LocalStorage.html SVG.html
+
+NETWORK:
+AboutUs.html
+
