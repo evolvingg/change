@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Matrix Display</title>
+    
+    </style>
+</head>
+<body onload="onPageLoad();">
+   <div id = "matrix">
+   </div>
+</body>
+<script>
+	function onPageLoad() {
+		var elem = document.getElementById('matrix');
+		var result = [];
+		for(var i=0; i<5; i++){
+			result[i] = [];
+			for(var j=0; j<5; j++)
+			{
+				result[i][j] = Math.floor((Math.random()*100)+1);
+			}
+		}
+
+		elem.innerHTML = getTable(result);
+	}
+
+	function getTable(myArray)
+	{
+		var result = "<table border=1>";
+    	for(var i=0; i<myArray.length; i++) {
+        	result += "<tr>";
+        	for(var j=0; j<myArray[i].length; j++){
+            	result += "<td>"+myArray[i][j]+"</td>";
+        	}
+        	result += "</tr>";
+    	}
+    	result += "</table>";
+
+    return result;
+	}
+</script>

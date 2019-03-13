@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <style>
+        .div1{
+            height:800px;
+            text-align:center;
+            border:2px solid red;
+            width:800px;
+            margin:0 auto;
+        }
+        .div2{
+            width:400px;
+            height:600px;
+            border:2px solid green;
+            text-align:center;
+            margin:0 auto;
+        }
+        .div3{
+            width:200px;
+            height:200px;
+            border:2px solid blue;
+            text-align:center;
+            margin:0 auto;
+        }
+        .max{
+          
+          height:300px;
+          max-width:80px;
+          min-width: 200px;
+          border:2px solid red;
+        }
+   </style> 
+    </head> 
+
+    <body>
+
+      <header contenteditable="true">hello</header>
+      <div class="max">new div max-min width</div>
+        <div  class="div1">
+            div1
+            <div class="div2">
+                div2
+                <div class="div3">
+                    div3
+                    </div>
+                </div>
+        </div>
+
+        <style>
+.wrap{
+  //box-sizing: border-box;
+  border:2px solid red;
+}
+.col{
+  height:100px;
+  margin:20px;
+  border:2px solid green;
+}
+.new{
+  height:100px;
+  border:2px solid red;
+  position: relative;
+ // top:10px;
+}
+</style>
+<div class="wrap">
+  <div class="col">
+  </div>
+  <div class="col">
+  </div>
+</div>
+
+        <span>qwerty</span>
+
+        <div class='new'>jdhfkjshkjdfsk</div>
+      
+    </body>
+    <script>
+    window.onload= function(){
+      
+      var elem=document.querySelector('.div1');
+      function calledOnClick(e){
+          console.log('from event object:',e.target.classList);
+          console.log('from this',this.classList,this);
+          alert(e.target.classList);
+      }
+
+      elem.onclick=calledOnClick;
+
+  for (var i = 0; i < 5; i++) {
+  var btn = document.createElement('button');
+  btn.appendChild(document.createTextNode('Button ' + i));
+  btn.addEventListener('click', function(e) {
+    console.log('jhj',e);
+    console.log('jhj',e.target);
+    console.log(i,this);
+    alert(i);
+  });
+  document.body.appendChild(btn);
+}
+        
+
+        [1,2,5,7].forEach(function(elem){
+          setTimeout(function(){console.log(elem)},1000);
+        });
+        var ar=[1,2,5,7];
+        for(i=0;i<ar.length-1;i++){
+          setTimeout(function(){console.log(ar[i])},1000)
+        }
+        console.log('kjkjhjk');
+        for(let i=0;i<ar.length;i++){
+          setTimeout(function(){console.log(ar[i])},1000)
+        }
+
+        [1,2,5,7].map(function(elem){
+          setTimeout(function(){console.log(elem)},1000);
+        });
+
+        [1,2,5,7].filter(function(elem){
+          setTimeout(function(){console.log(elem)},1000);
+        });        
+    }
+
+    </script>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+     <title></title>
+    
+</head>
+<body>
+
+     <form name="myform" action="#" method="get">
+       <input type="text" id="txt"  placeholder="username" /><br>
+        <input type="password" id="pswd"  placeholder="password" /><br>
+
+       <img src="i.jpg" height="400px" width="400px"/>
+
+       <a href="http://www.google.com" onclick="calledonclick()">Go to Google!!</a>
+        <input type="submit" id="subtarg" value="Submit!!" onclick="calledonsubmit()"/>
+<select id="ddlViewBy">
+  <option value="1">test1</option>
+  <option value="2" selected="selected">test2</option>
+  <option value="3">test3</option>
+</select>
+     </form>
+     <div id="cover" style="width:50px;height:50px;border:2px solid red">
+     </div>
+     
+
+</body>
+ <script type="text/javascript">
+   //  document.addEventListener('DOMContentLoaded',function(){	
+   //  var tb=myform.txt;
+    // console.log(tb.value);
+    // });
+    
+     var foo=1;function bar(){if(!foo){var foo=10;console.log(foo);}console.log(foo);}bar();
+console.log("fdjssfskkj");
+     function calledonloadofbody()
+     {
+     	console.log('calledonloadofbody!!');
+     }
+     
+     function calledonclick()
+     {
+     	event.preventDefault();
+     }
+
+     function calledonsubmit()
+     {
+     	var e=event;
+     	e.preventDefault();
+     //   console.log(this);
+          console.log(event.target.id);        
+          console.log(event.target);
+          var el=event.target.id;
+         console.log(el);
+document.getElementById(el).style.border="2px solid red";
+       console.log(document.getElementById(el));
+        console.log(event.target.value);
+     	if(myform.txt.value=="")
+     	{
+     		alert('username required');
+
+     	}
+     	else if(myform.pswd.value=="")
+     	{
+     		alert('password required');
+     	}
+     	else{
+     		myform.submit();
+     	}
+        var cover= document.getElementById('cover');
+        cover.style.display = "block";
+        var overlay=document.createElement('div');
+        overlay.id='overlay';
+        cover.parentNode.appendChild(overlay);
+        overlay.style.border="2px solid lightblue";
+        var heading=document.createElement('header');        
+        overlay.appendChild(heading);
+        heading.innerHTML="<strong>hello</strong>";
+        var section=document.createElement('section');
+        overlay.appendChild(section);
+        section.innerHTML="done the work";
+        section.style.border="2px dotted green";
+        objectButton={a:'val',b:'in2'};       
+        if((Object.keys(objectButton)).length===2)
+        {
+            var button1=document.createElement('input');
+            overlay.appendChild(button1);
+            button1.type='button';
+            button1.value='yes';
+ button1.className='global-btn';
+            var button2=document.createElement('input');
+            overlay.appendChild(button2);
+            button2.type='button';
+            button2.value='no';
+
+        }
+       var today = new Date();
+var dd = today.getDate();
+var mm = today.getMonth()+1; //January is 0!
+
+var yyyy = today.getFullYear();
+if(dd<10){
+    dd='0'+dd
+} 
+if(mm<10){
+    mm='0'+mm
+} 
+var today = dd+'/'+mm+'/'+yyyy;  
+section.innerHTML+=today;	
+var e = document.getElementById("ddlViewBy");
+var strUser = e.options[e.selectedIndex].text;
+section.innerHTML+="<br>"+strUser;
+}
+    </script>
+</html>

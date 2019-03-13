@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		.green{
+			background-color: green;
+		}
+	</style>
+</head>
+<body id="body">
+<div>
+<button>on click!!!</button>
+</div>
+<div>
+<button>on click2!!</button>
+</div>
+<div>
+<button>on click3!!!</button>
+</div>
+<div>
+<button>on click4!!</button>
+</div>
+<p id='para'></p>
+<script type="text/javascript">
+    var p=document.getElementById('para');
+	var buttons=document.getElementsByTagName('button');
+	for(var i=0;i<buttons.length;i++)
+	{
+		console.log(i);
+		buttons[i].addEventListener('click',handler(i));
+	}
+	
+	function handler(i){
+		 return function(){p.innerHTML=i;} 
+         console.log(i);
+	} 
+
+	window.addEventListener('resize',fun);
+function fun()
+{
+	window.addEventListener('mouseout',fun2)
+}
+function fun2()
+{
+	console.log('hello');
+	document.getElementById('body').className='green';
+	window.removeEventListener('mouseout',fun2);
+}
+
+	
+</script>
+</body>
+</html>

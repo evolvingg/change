@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+
+<button>1st</button>
+<button>2nd</button>
+<button>3rd</button>
+<script type="text/javascript">
+	var elem=document.getElementsByTagName('button');
+	console.log(elem);
+	for(var i=0;i<elem.length;i++){
+		console.log(i);
+		(function(i){
+			console.log(i);
+		elem[i].addEventListener('click',function(){
+			console.log(i);
+			called(i+1)});
+	})(i)
+	}
+	
+	function called(i){
+		alert(i);	
+	}
+
+for(var i=0;i<elem.length;i++){
+		console.log('different....',i);
+		elem[i].addEventListener('click',function(){
+			console.log(i);
+			called(i+1)});
+	}
+
+
+</script>
+</body>
+</html>

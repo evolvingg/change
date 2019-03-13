@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		.container{
+			position:relative;
+		}
+		.header {
+			height:250px;
+			background-color:red;
+			position: fixed;
+			top:0;
+			left:0;
+			right:0;
+		}
+		section {
+			background-color: yellow;
+			height:200px;
+		}
+		nav{
+			background-color: yellow;
+			width:30%;
+			float:left;
+		}
+		article {
+			background-color: blue;
+			width:70%;
+			float: left;
+		}
+		nav:after,article:after{
+			content:'';
+			clear:both;
+		}
+		footer{
+			height:250px;
+			background-color: green;
+			position:absolute;
+			bottom:0;
+			right:0;
+			left:0;
+		}
+		* {
+			box-sizing:border-box;
+		}
+	</style>
+</head>
+<body>
+
+	<div class="container">
+		<header class="header">header</header>
+		<section>
+			<nav>shakjdh</nav>
+			<article>ojwqieio</article>
+		</section>
+		<footer>footer</footer>
+	</div>
+
+</body>
+</html>

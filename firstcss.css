@@ -1,0 +1,11 @@
+@import url('secondcss.css');
+
+div#divheader
+{
+	background-color: orange;
+	
+}
+p
+{
+	background-color: red;
+}

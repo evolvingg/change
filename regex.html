@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <script type="text/javascript">
+    //literal way
+    var pattern = /abc/; //object of regexp()
+    var str = 'this is containin abcde';
+    console.log(pattern.test(str));
+
+    //using RegExp object(constructor way)
+    var pat = new RegExp('javascript');
+    var st = 'i m learning javascript';
+    console.log(pat.test(st));
+
+    var p1 = new RegExp('^javascript'); //starts with
+    var p2 = new RegExp('javascript$'); //ends with
+    var pat2 = /j*v/;
+    var brad = /\d\d-\d\d-\d\d\d\d/;
+    var s = "20-85-3000";
+    console.log(brad.test(s));
+    var pitt = /\d{2}-\d{2}-\d{4}/;
+    var s1 = "204-85-3000";
+    console.log(pitt.test(s1));
+    var pitt1 = /^\d{2}-\d{2}-\d{4}$/;
+    var s2 = "20-85-30040";
+    console.log(pitt1.test(s2));
+    var brad2 = /[a-zA-Z0-9]/
+    var s3 = '9';
+    console.log(brad2.test(s3));
+
+    var pattern2 = /is(?= funny)/;
+    var strin = 'english is not funny but javascript is funny';
+
+    //alternation
+    var pnew = /java|[09]/;
+    //   console.log(pnew.test('javascript'));
+    console.log(pattern2.test(strin));
+    var newch = /javascript/m;
+    var k = "starts not with javascript sbut not ends\n again not ";
+
+    var text = "i am learning jaVascript and javascript";
+    var patnew1 = new RegExp('javascript', 'ig');
+    console.log(text.replace(patnew1, 'JAVASCRIPT'));
+    console.log(text);
+
+
+
+    var arr = "1 plus 2 is 3 ".match(/\d/g);
+    console.log(arr);
+
+    var ar2 = "3plus 2 is 5".match(/[0-3]/g);
+    console.log(ar2);
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>

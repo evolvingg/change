@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+.consistentPadding{
+    font-size: 12px;
+    line-height: 20px;
+    color:#333;
+    font-family: Arial;
+    clear: both;
+    box-sizing:border-box;
+}
+.consistentPadding .comment h3{
+    font-size: 16px;
+    margin: 30px 0 20px 0;
+    font-family: inherit;
+    font-weight: 700;
+    text-rendering: optimizelegibility;
+}
+.consistentPadding .comment{
+    margin: 0;
+    box-sizing: border-box;
+    clear:both;
+}
+.consistentPadding .comment a{
+    font-size: 12px;
+}
+.consistentPadding .comment .morelinkStyle {
+    color: #273690;
+    font-size: 12px;
+    line-height: 20px;
+    text-transform: uppercase;
+    outline: none;
+}
+.consistentPadding .morelinkStyle:hover,.consistentPadding .morelinkStyle:active{
+    color: #273690;
+    text-decoration: none;
+    outline: none;
+}
+.consistentPadding .comment p.margin_para{
+    margin: 20px 0 0 !important;
+    clear: both;
+}
+.short-text *, .text-content *:last-of-type, .text-content *:last-child{
+   margin:0 !important;
+}
+.text-content *:first-of-type{
+    margin-top:0 !important;
+}
+</style>
+	</style>
+</head>
+<body>
+<div class="consistent-padding">
+<div class="comment">
+<article class="text-content">
+<h3>Bedspreads</h3>
+   	Changes to the Object prototype object are seen by all objects through prototype chaining, unless the properties and methods subject to those changes are overridden further along the prototype chain
+
+
+When it comes to inheritance, JavaScript only has one construct: objects. Each object has a private property (referred to as [[Prototype]] ) which holds a link to another object called its prototype. That prototype object has a prototype of its own, and so on until an object is reached with null as its prototype. By definition, null has no prototype, and acts as the final link in this prototype chain.
+
+
+Nearly all objects in JavaScript are instances of Object which sits on the top of a prototype chain.
+
+JavaScript objects are dynamic "bags" of properties (referred to as own properties). JavaScript objects have a link to a prototype object. When trying to access a property of an object, the property will not only be sought on the object but on the prototype of the object, the prototype of the prototype, and so on until either a property with a matching name is found or the end of the prototype chain is reached.
+</article>
+</div>
+</div>
+</body>
+<script src="jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="chkA.js"></script>
+</html>

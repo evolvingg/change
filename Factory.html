@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript">
+		//will create employee object
+
+		function EmpFactory(){
+
+			this.createEmployee=function(typeOfEmp){
+				var emp;
+				if(typeOfEmp==='PartTime'){
+					emp=new PartTime();
+				}
+				else if(typeOfEmp ==='Permanent'){
+					emp=new Permanent();
+				}
+				else if(typeOfEmp === 'Contractor'){
+					emp=new Contractor();
+				}
+				else if(typeOfEmp ==='Trainee'){
+					emp=new Trainee();
+				}
+				emp.type=typeOfEmp;
+				emp.details=function(){
+					console.log(this.type +" has hourly wages of " +this.hourlyWages);
+				}
+				return emp;
+			}
+
+		}
+
+		function Permanent(){
+			this.hourlyWages="2000";
+		}
+
+		function Contractor(){
+			this.hourlyWages="2500";
+		}
+
+		function Trainee(){
+			this.hourlyWages="1500";
+		}
+
+		function PartTime(){
+			this.hourlyWages="2200";
+		}
+
+		var factory=new EmpFactory();
+		var employees=[];
+		employees.push(
+		factory.createEmployee('PartTime'));//should return instance of partTime employee,I dont need to know how object is created its encapsulated I will just pass the type of employee needed;
+
+		employees.push(
+		factory.createEmployee('Contractor'));
+		employees.push(
+		factory.createEmployee('Trainee'));
+		employees.push(
+		factory.createEmployee('PartTime'));
+		employees.push(
+		factory.createEmployee('Permanent'));
+
+		for(var i=0;i<employees.length;i++){
+			employees[i].details();
+		}
+
+
+	</script>
+</head>
+<body>
+
+</body>
+</html>

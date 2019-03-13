@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		.col{
+			background-color:#ADD8E6;
+		}
+		#parent{
+			border:2px dotted black;
+			overflow: hidden;
+		}
+		.first{
+			width: 100px;
+			height:100px;
+			border:2px solid red;
+			float:left;
+		}
+		.second{
+			width:100px;
+			height:100px;
+			float:left;
+			border:2px solid green;
+		}
+		.third
+		{
+		width:100px;
+			height:100px;
+			border:2px solid blue;
+			float:left;	
+		}
+		.fourth{
+			width:100px;
+			height:100px;
+			border:2px solid pink;
+			float:left;
+		}
+	</style>
+
+</head>
+<body>
+ <table id="tab">
+ 	<tr>
+ 		<td style="color:green">wqerty</td>
+ 		<td style="color:blue">iuotuo</td>
+ 		<td style="color:red">ghghghghg<strong>weiurywiyriwyriwu</strong>hghghghgh</td>
+ 	</tr>
+ 	<tr>
+ 		<td style="color:red;">wqerty</td>
+ 		<td style="color:green;">iuotuo</td>
+ 		<td style="color:blue">ghghghghghghghghgh</td>
+ 	</tr>
+ 	<tr>
+ 		<td style="color:blue">wqerty</td>
+ 		<td style="color:red">iuotuo</td>
+ 		<td style="color:green">ghghghghghghghghgh</td>
+ 	</tr>
+ </table>
+ <input type="button" value="addRow" id="addC" click="add"/>
+
+ <div id="parent">
+ <div class="first">first</div>
+ <div class="second">second</div>
+ <div class="third">third</div>
+ <div class="fourth">fourth</div>
+ </div>
+
+ <script type="text/javascript">
+    var table=document.getElementById('tab');
+    var button=document.getElementById('addC');
+ 	table.onclick=function(event){
+ 		var tar=event.target;
+ 		console.log(event.target);
+ 		console.log('yyyyyyyyu');
+ 		//tar.className="col";
+ 		while(tar != table) { // ( ** )
+        if (tar.nodeName == 'TD') { // ( * )
+        tar.className="col";
+       }
+      tar = tar.parentNode
+     }
+}
+ 	button.onclick=function(event){
+ 		console.log(event.target);
+ 		var td=document.createElement('td');
+ 		td.textContent="new node";
+ 		var node=table.childNodes[1].childNodes[0];
+ 		node.appendChild(td);
+        console.log(table.childNodes[1].childNodes[0].childNodes);
+ 	}
+ </script>
+</body>
+</html>

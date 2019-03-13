@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		.hello{
+			width:700px;
+			height:400px;
+			border:2px solid black;
+			position:relative;
+			margin: 0 auto;
+		}
+		#email{
+			position:absolute;
+			top:0;
+		}
+		.hidden{
+			display:none;
+		}
+		.active{
+			display:block;
+			position:absolute;
+			right:486px;
+			height:20px;
+			width:20px;
+			top:0;
+		}
+	</style>
+</head>
+<body>
+
+<div class="hello">
+<label for="email" class='lab'>Email:</label>
+	<input type="text" name="email" id="email"/>
+	<img src='icon-check.jpg' class='hidden'/>
+	<img src='red-cross.png' class='hidden'/>
+
+</div>
+<script>
+    document.getElementById('email').onclick=function(e){
+    	console.log(e.target.parentNode.children[2]);
+    	console.log(this);
+    	this.parentNode.children[2].classList='active';
+    	//this.parentNode.children[2].removeClass('hidden');
+    }
+</script>
+</body>
+</html>

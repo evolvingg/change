@@ -1,0 +1,70 @@
+{
+"Employees" : [
+{
+"userId":"rirani",
+"jobTitleName":"Developer",
+"firstName":"Romin",
+"lastName":"Irani",
+"preferredFullName":"Romin Irani",
+"employeeCode":"E1",
+"region":"CA",
+"phoneNumber":"408-1234567",
+"emailAddress":"romin.k.irani@gmail.com"
+},
+{
+"userId":"nirani",
+"jobTitleName":"Developer",
+"firstName":"Neil",
+"lastName":"Irani",
+"preferredFullName":"Neil Irani",
+"employeeCode":"E2",
+"region":"CA",
+"phoneNumber":"408-1111111",
+"emailAddress":"neilrirani@gmail.com"
+},
+{
+"userId":"thanks",
+"jobTitleName":"Program Directory",
+"firstName":"Tom",
+"lastName":"Hanks",
+"preferredFullName":"Tom Hanks",
+"employeeCode":"E3",
+"region":"CA",
+"phoneNumber":"408-2222222",
+"emailAddress":"tomhanks@gmail.com"
+},
+{
+"userId":"tanvini",
+"jobTitleName":"Developer",
+"firstName":"tanvi",
+"lastName":"singh",
+"preferredFullName":"tanvi singh",
+"employeeCode":"E4",
+"region":"CA",
+"phoneNumber":"408-1234569",
+"emailAddress":"emailtanvisingh@gmail.com"
+},
+{
+"userId":"niranbii",
+"jobTitleName":"Developer",
+"firstName":"ankita",
+"lastName":"singh",
+"preferredFullName":"ankita singh",
+"employeeCode":"E5",
+"region":"CA",
+"phoneNumber":"408-1111011",
+"emailAddress":"mailankitasingh@gmail.com"
+},
+{
+"userId":"thankhs",
+"jobTitleName":"Program Directory",
+"firstName":"tony",
+"lastName":"stark",
+"preferredFullName":"tony stark",
+"employeeCode":"E6",
+"region":"CA",
+"phoneNumber":"408-2222022",
+"emailAddress":"tonystark@gmail.com"
+},
+]
+}

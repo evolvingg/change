@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+</body>
+<script>
+	console.log('person1:shows ticket');
+	console.log('person2 :shows tocket');
+
+	const promis=new Promise((resolve,reject)=>{
+		setTimeout(()=>{
+			resolve('resolved');
+		},1000)
+	});
+	promis.then((t) => {
+		console.log(`person3: ${t}`);
+	});
+	console.log('person4');
+	console.log('person5');
+
+
+
+	//example 1
+
+	let promiseToCleanTheRoom = new Promise(function(resolve,reject){
+		let isClean = true;
+		if(isClean){
+			resolve("cleaned the room");
+		}
+		else{
+			reject("not done");
+		}
+	});
+
+	promiseToCleanTheRoom.then(function(fromResolve){
+		console.log('Room status:'+fromResolve);
+	}).catch(function(fromReject){
+		console.log('room status:'+ fromReject);
+	});
+
+
+	//example 2
+
+	let promiseToClean = function(){
+		return new Promise(function(resolve,reject){
+			resolve("room cleaned");
+		});
+	}
+
+	let promiseRemoveGarbage = function(){
+		return new Promise(function(resolve,reject){
+			resolve("garbage removed");
+		})
+	}
+
+	let promiseWinIce = function(){
+		return new Promise(function(resolve,reject){
+			resolve('::won ice');
+		})
+	}
+
+	// promiseToClean().then(function(fromResolve){
+	// 	console.log("resolve: " + fromResolve);
+	// 	promiseRemoveGarbage().then(function(fromResolve){
+	// 	console.log("garbage resolved:"+fromResolve)
+	// 	promiseWinIce().then(function(fromResolve){
+	// 	console.log("icecream status:"+fromResolve);
+	// })
+	// })
+	// })
+
+		promiseToClean().then(function(){
+			return promiseRemoveGarbage();
+		}).then(function(){
+			return promiseWinIce();
+		}).then(function(result){
+			console.log(result+";finished");
+		});
+
+		Promise.all([promiseToClean(),promiseRemoveGarbage(),promiseWinIce()]).then(function(){
+			console.log('all finished');
+		});
+
+		Promise.race([promiseToClean(),promiseRemoveGarbage(),promiseWinIce()]).then(function(){
+			console.log('1 of  them finished');
+		});
+
+</script>
+</html>

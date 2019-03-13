@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Shoes Filter</title>
+    <style>
+    	.general, .price {
+			border: 0px;
+			border-bottom: 1px solid blue;
+			outline: 0px;
+		}
+
+		.filters {
+			width: 25%;
+			float: left;
+		}
+		.products {
+			width: 75%;
+    		float: left;
+    	}
+
+    	.individual{
+			margin-bottom: 10px;
+		}
+
+		.mrp{
+			text-decoration: line-through;
+		}
+
+		.discount, .rating{
+			color: green;
+		}
+
+		.items{
+			margin-right: 10px;
+			border: none;
+			background: none;
+			color: none;
+			text-decoration: underline;
+		}
+
+		.sort{
+			text-decoration: underline;
+			margin-bottom: 10px;
+		}
+
+
+    </style>
+</head>
+<body onload="onPageLoad(); loadFilters();">
+   <div class="filters">
+   		<h4>Filters</h4>
+		
+   		Price
+   		<select name="minPrice" id="minprice" class="price">
+		<option value="00" class="price" selected>Min</option>
+		<option value="500" class="price">500</option>
+		<option value="1000" class="price">1000</option>
+		<option value="1500" class="price">1500</option>
+		<option value="2000" class="price">2000</option>
+		<option value="3000" class="price">3000</option>
+		</select>
+		to
+		<select name="maxPrice" id="maxprice" class="price">
+		<option value="4000" class="price" selected>4000+</option>
+		<option value="3000" class="price">3000</option>
+		<option value="2000" class="price">2000</option>
+		<option value="1500" class="price">1500</option>
+		<option value="1000" class="price">1000</option>
+		<option value="500" class="price">500</option>
+		</select>
+		
+		<div>
+			Colors
+			<div id="colors"></div>
+		</div>
+
+
+   </div>
+
+   <div id="products1" class="products">
+		showing 41 result for "shoes"
+		<div class="sort">
+			<b>Sort By</b>
+			<button type="button" class="items" onclick="sortRelevance()">Relevance</button>
+			<button type="button" class="items" onclick="sortpriceLowHigh()">Price - Low to High</button>
+			<button type="button" class="items" onclick="sortpriceHighLow()">Price - High to Low</button>
+		</div>
+		<div id="products">
+		</div>
+   </div>
+</body>
+<script>
+	var productlist = new Array();
+	var filters;
+	function httpGet(theUrl)
+	{
+	    var xmlHttp = new XMLHttpRequest();
+	    xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
+	    xmlHttp.send( null );
+	    return xmlHttp.responseText;
+	}
+
+	function httpGetAsync(theUrl, callback)
+	{
+	    var xmlHttp = new XMLHttpRequest();
+	    xmlHttp.onreadystatechange = function() { 
+	        if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
+	            callback(xmlHttp.responseText);
+	    }
+	    xmlHttp.open("GET", theUrl, true); // true for asynchronous 
+	    xmlHttp.send(null);
+	}
+
+	function displayResult()
+	{
+		var i = 0;
+		while(i<(productlist.products.length))
+		{
+			var parent = document.getElementById('products');
+			var img = document.createElement('img');
+			img.src = productlist.products[i].image;
+            parent.appendChild(img);
+            var title = document.createElement('div');
+            var mrp = "";
+            var discount = "";
+            if(productlist.products[i].price.mrp)
+            {
+            	mrp = productlist.products[i].price.mrp;
+            }
+            if(productlist.products[i].discount != 0)
+            {
+            	discount = productlist.products[i].discount + "% off";
+            }
+            title.innerHTML = productlist.products[i].title + "<div class='rating'>" + productlist.products[i].rating + "</div>" +"<div>" + productlist.products[i].price.final_price + "  <span class='mrp'>" + mrp + "</span>" + "  <span class='discount'>" + discount + "</span>" + "</div>";
+        	parent.appendChild(title);
+            i++;
+		}
+	}
+
+
+	function ShowProducts(data) {
+		productlist = JSON.parse(data);
+		displayResult();
+	}
+
+	function onPageLoad() {
+		// productlist = JSON.parse(httpGet("http://flipkart.mockable.io/products"));
+		httpGetAsync("http://flipkart.mockable.io/products",ShowProducts);
+		// displayResult();
+		
+	}
+
+	function loadFilters() {
+		filters = JSON.parse(httpGet("http://flipkart.mockable.io/filters"));
+		displaycolorFilter(filters.filters[1].values);
+	}
+
+	function displaycolorFilter(colorsfromapi)
+	{
+		var parent = document.getElementById('colors');
+		var j = 0;
+		while(j<(colorsfromapi.length))
+		{
+			var child = document.createElement('div');
+			child.setAttribute('id',j);
+			child.setAttribute('class','colors');
+			child.innerHTML = colorsfromapi[j].title;
+			parent.appendChild(child);
+			j++;
+		}
+
+	}
+
+	function sortRelevance(){
+		document.getElementById('products').innerHTML = "";
+		onPageLoad();
+	}
+
+	function sortpriceLowHigh(){
+		productlist.products.sort(function(a, b) {
+    	return parseFloat(a.price.final_price) - parseFloat(b.price.final_price);
+		});
+		document.getElementById('products').innerHTML = "";
+		displayResult();
+	}
+
+	function sortpriceHighLow(){
+		productlist.products.sort(function(a, b) {
+    	return parseFloat(b.price.final_price) - parseFloat(a.price.final_price);
+		});
+		document.getElementById('products').innerHTML = "";
+		displayResult();
+	}
+
+
+</script>
+</html>
