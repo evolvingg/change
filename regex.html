@@ -9,6 +9,13 @@
     var str = 'this is containin abcde';
     console.log(pattern.test(str));
 
+    function hoistChk(){return 1;}
+    console.log('1:',hoistChk,someHoist);
+    var hoistChk=4;
+    someHoist = [];
+    console.log('2:',hoistChk,someHoist);
+    var someHoist=8;
+
     //using RegExp object(constructor way)
     var pat = new RegExp('javascript');
     var st = 'i m learning javascript';
@@ -56,6 +63,40 @@
 </head>
 
 <body>
+
+    <table onclick="called(event)">
+        <thead>
+            <tr>
+                <td colspan=4>for delegation</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>A--cell1</td>
+                <td>A--cell2</td>
+                <td>A--cell3</td>
+                <td>A--cell4</td>
+            </tr>
+            <tr>
+                <td>B--cell1</td>
+                <td>B--cell2</td>
+                <td>B--cell3</td>
+                <td>B--cell4</td>
+            </tr>
+            <tr>
+                <td>C--cell1</td>
+                <td>C--cell2</td>
+                <td>C--cell3</td>
+                <td>C--cell4</td>
+            </tr>
+        </tbody>
+    </table>
+    <script>
+        function called(event){
+            alert(event.target.innerHTML)
+            alert(event.currentTarget.innerHTML)
+        }
+    </script>
 </body>
 
 </html>
