@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <style>
+
+        #targetDiv{
+            width:400px;
+            height:600px;
+            border:2px solid red;
+        }
+
+    </style>
+    <script>
+        function dragHandler(e) {
+            console.log('inside dragHandler ');
+            e.dataTransfer.setData('itemId', e.target.id);
+        }
+
+        function dropHandler(e) {
+            e.preventDefault(); // for mozilla !
+            console.log('inside dropHandler ')
+            var imageId = e.dataTransfer.getData("itemId");
+            e.target.appendChild(document.getElementById(imageId));
+            e.target.appendChild(document.createElement("br"));
+
+        }
+
+        function allowDrop(e) {
+            console.log('ondropover !')
+            e.preventDefault();            
+        }
+
+    </script>
+</head>
+<body>
+
+
+    <div id="targetDiv"
+          ondrop="dropHandler(event)" 
+         ondragover="allowDrop(event)">
+
+    </div>
+    <hr/>
+    <img src="flower.jpg" 
+         id="targetImage"
+         draggable="true" 
+         height="100px" 
+         width="100px"
+         ondragstart="dragHandler(event)"
+          />
+    <img src="flower.jpg"
+         id="targetImageOne"
+         draggable="true"
+         height="100px"
+         width="100px"
+         ondragstart="dragHandler(event)" />
+
+</body>
+</html>

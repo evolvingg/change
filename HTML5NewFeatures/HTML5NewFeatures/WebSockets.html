@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script>
+
+        var webSocket ;
+        var divOutput;
+        function initialize() {
+            webSocket = new WebSocket('ws://echo.websocket.org');// new in HTML 5
+
+            webSocket.onopen = function () {
+                divOutput = document.getElementById('output');
+                divOutput.innerHTML +=
+                    '<span style="color:green"> Connected ! </span><br/>';
+            }
+
+            // receive data !
+            webSocket.onmessage = function (resp) {
+                console.log(resp);
+                divOutput.innerHTML +=
+                    ' <span style="color:blue"> Response : ' + resp.data + '</span><br/>';
+            }
+
+            webSocket.onerror = function (err) {
+                divOutput.innerHTML +=
+                    '<span style="color:red"> Error : ' + err + ' </span><br/>';
+            }
+        }
+        function send_Message(msg) {
+            webSocket.send(msg); // sending the data !
+        }
+        window.addEventListener('load', initialize, false);
+    </script>
+</head>
+<body>
+
+    <input type="text" onkeypress="if (this.value) { if (window.event.keyCode == 13) { send_Message(this.value); } }" />
+    <div id="output">
+    </div >
+
+</body>
+</html>

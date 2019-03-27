@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+    <script type="text/javascript">
+    	 var employee=new Proxy({},{
+    	 	set:function(target,name,value){
+                console.log('set called');
+                console.log("target:"+target);
+                console.log("name:"+name);
+                console.log("value:"+value);
+                let st= value.toString().replace(' ','_');
+                return target[name]=st;
+
+    	 	},
+    	 	get:function(target,name){
+                 console.log('get called');
+                 console.log("target:"+target);
+                 console.log("target:"+name);
+                 return target[name];
+    	 	}
+    	});
+    	 employee.Empname="Rohan Agrawal";
+    	 console.log(employee.Empname);
+
+    </script>
+
+</head>
+<body>
+
+</body>
+</html>

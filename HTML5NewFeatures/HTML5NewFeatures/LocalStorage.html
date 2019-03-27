@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+
+    <script>
+        function initiate() {
+            var saveBtn = document.getElementById('btnSave');
+            var retreiveBtn = document.getElementById('btnRetrieve');
+            saveBtn.addEventListener('click', saveItem);
+            retreiveBtn.addEventListener('click', retrieveItem);
+        }
+
+        function retrieveItem() {
+            var resultTxt = document.getElementById('txtResult');
+            var key = document.getElementById('txtKey').value;
+            //resultTxt.innerHTML = localStorage[key];   // localStorage.getItem(key)
+            resultTxt.innerHTML = sessionStorage[key];  
+        }
+        function saveItem() {
+            var mykey = document.getElementById('txtKey').value;
+            var myvalue = document.getElementById('txtValue').value;
+
+            // store in localStorage(data available across windows but same browser)
+            //localStorage[mykey] = myvalue;
+            //localStorage.setItem(mykey, myvalue);
+            
+           // jData = { Name: 'Sumeet', Location: 'Pune' };
+            //var jsonData = JSON.stringify(jData);
+            //    localStorage[mykey] = jsonData;
+
+            // store in sessionStorage
+            sessionStorage[mykey] = myvalue;
+        }
+        window.addEventListener('load', initiate);
+    </script>
+</head>
+<body>
+    <label for="txtKey"> Key : </label><input type="text" id="txtKey" /> <br/>
+    <label for="txtValue"> Value : </label><input id="txtValue" type="text" /><br/>
+    <textarea id="txtResult">
+    </textarea> <br/>
+    <input id="btnSave" type="button" value="Save" />
+    <input id="btnRetrieve" type="button" value="Retreive" />
+
+     <p>When creating AMP pages and content, you should strongly consider using the HTTPS protocol (vs. HTTP). Although, HTTPS is not required for the AMP document itself or for images and fonts, there are many AMP features that require HTTPS (e.g., video, iframes, and more). To ensure your AMP pages take full advantage of all AMP features, use the HTTPS protocol. </p>
+</body>
+</html>

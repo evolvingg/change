@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link href="jsUnitStyle.css" rel="stylesheet" />
+    <script>
+
+        if (navigator.onLine) {
+            alert('U r Online !');
+        } else {
+            alert('U r Offline !');
+        }
+
+
+        var app_support = !!window.applicationCache;
+
+        var cache;
+
+
+        if (app_support) {
+            cache = window.applicationCache;
+        }
+
+        function CheckUpdate() {
+            cache.update();
+            
+        }
+
+        cache.addEventListener('updateready', function () {
+
+            if (cache.status == cache.UPDATEREADY) {
+                if (confirm('New manifest file exist.. Reload ?')) {
+                    location.reload(); // refreshing the page !
+                }
+            }
+        }, false);
+
+    </script>
+</head>
+<body>
+    <!--<img src="books.jpg" height="200" width="200" />-->
+    <input type="button" class="button" value="Check for app.manifest changes !" onclick="CheckUpdate()"/>
+
+    <br/>
+    <a href="LocalStorage.html"> Click here to go to LocalStorage page !</a>
+
+</body>
+</html>

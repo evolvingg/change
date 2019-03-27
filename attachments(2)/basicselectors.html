@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <script src="jquery-3.1.0.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        $('p').css('border', '2px solid green');
+        $('#para').css('border', '2px solid red');
+        $('.even').css('color', 'blue');
+        $('.odd').css('border', '4px dotted blue'); //wont throw an error
+        //$('.even,#para').css('border,'2px solid red');
+        $('li').css('background-color', 'orange'); //all li s selected
+        $('li:last').css('border', '4px dotted blue');
+        $('li:lt(2)').css('color', 'blue');
+
+    })
+    </script>
+</head>
+
+<body>
+    <p class="even">first para</p>
+    <p id="para">second para</p>
+    <p class="even">third para</p>
+    <ul>
+        <li>pune</li>
+        <li>goa</li>
+        <li>gurgaon</li>
+        <li>delhi</li>
+    </ul>
+    <ul>
+        <li>pune</li>
+        <li>haridwar</li>
+        <li>gangotri</li>
+        <li>pune</li>
+    </ul>
+</body>
+
+</html>

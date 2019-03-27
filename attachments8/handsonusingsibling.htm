@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style>
+ #first,#second,#third,#fourth
+  {
+    height:100px;
+    width:100px;
+    border:2px solid green;
+    float:left;
+    margin:10px;
+    background-color:white;
+  }
+</style>
+</head>
+<body>
+<p>
+<input type="button" value="<<Previous" onclick="previous()" />
+<input type="button" value="Next>>" onclick="next()" /> 
+ </p>
+  <div id="first"></div><div id="second"></div><div id="third"></div><div id="fourth"></div>
+</body>
+<script type="text/javascript">
+ var divt=document.querySelector('#first'); 
+ var prev=null;
+  function next()
+  { 
+    if(divt.nodeName=='DIV')
+    {
+	  divt.style.backgroundColor="yellow";  
+    console.log(divt);
+    if(prev!=null)
+      prev.style.backgroundColor="white";
+    prev=divt;
+    divt=divt.nextSibling;
+   }
+  }
+ function previous()
+ {
+    if(prev==null||prev.nodeName=='DIV')
+    {
+      if(prev!=null)
+       {
+ 	     divt=prev;
+       prev=divt.previousSibling;
+       if(prev.nodeName=='DIV')
+       prev.style.backgroundColor="yellow";
+       divt.style.backgroundColor="white";
+       console.log(prev);
+       console.log(divt);
+       }
+      else
+      divt.style.backgroundColor='yellow';
+    }
+   else if(prev.nodeName!='DIV')
+   {
+    divt.style.backgroundColor='yellow';
+    prev=null;
+   }
+
+ }
+
+</script>
+</html>

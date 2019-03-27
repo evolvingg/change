@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Page4</title>
+	<script>
+
+	function go()
+      {
+      	 var mykey=document.querySelector('input');
+         localStorage[mykey]-=1;
+         var count=localStorage[mykey];
+         history.go(count);
+      }
+
+	</script>
+</head>
+<body>
+<a href="page5.html">go to page5</a>
+<input type="button" value="home" onclick="go()"/>
+</body>
+</html>

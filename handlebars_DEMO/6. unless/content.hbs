@@ -1,0 +1,8 @@
+<div>{{name}}</div>
+
+<div>{{oracleId}}</div>
+
+{{!-- unless only passes for false, null, undefined, "", [], 0 --}}
+{{#unless isFresher}}
+This Employee has {{previousExperience}} years of Previous Experience
+{{/unless}}

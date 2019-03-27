@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="jquery-3.1.0.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            //  $.ajax('Data.html');  // bydefault get !
+
+
+            //  dataType:'json'
+            // contentType: json
+
+            $.ajax({
+                url: 'PostExample.php',
+                method:"POST",
+                data: { uname: $('#txtUsername').val() },
+                success: function (response) {
+                    $('#targetDiv').html(response)
+                },
+                error: function (err) {
+                    $('#targetDiv').html('Error :' + err);
+                }
+               
+            });// eof ajax
+
+        });// eof ready
+    </script>
+</head>
+<body>
+    Click the button to get the message from the server ! <br />
+    Name : <input type="text" id="txtUsername" /><br />
+
+    <input type="button" value="Submit" id="btnSubmit" />
+
+
+    <hr />
+    <div id="targetDiv">
+
+
+    </div>
+</body>
+</html>

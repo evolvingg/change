@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <script src="jquery-3.1.0.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        $('#targetDiv').attr('style', 'border:2px solid red');
+        $('#targetDiv').attr('name', 'targetDivision');
+
+        //or
+        //$('#targetDiv').attr({
+        //		'name':'trg',
+        //			'style':'border:2px solid red'
+        //		});
+        console.log($('#targetDiv').attr('id')); //reads id property
+        console.log($('#targetDiv').attr("width"));
+    })
+    </script>
+</head>
+
+<body>
+    <div id="targetDiv" height="100px" width="200px">
+        some common methods
+    </div>
+</body>
+
+</html>

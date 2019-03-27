@@ -1,0 +1,12 @@
+<div>{{name}}</div>
+
+<div>{{oracleId}}</div>
+
+{{!-- if passes for everything except false, null, undefined, "", [], 0 --}}
+{{#if isEmployee}}
+Current Company - {{currentCompany}}
+{{else if isStudent}}
+Student at University - {{currentUniversity}}
+{{else}}
+Neither an employee, nor a student
+{{/if}}

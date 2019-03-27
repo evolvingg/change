@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script>
+
+        function Car() {
+           this.name = 'i30';
+           this.speed = 300;
+        }
+
+        function JamesBondCar() {
+           this.canFly = true;
+        }
+
+       JamesBondCar.prototype = new Car();
+        
+       console.log(JamesBondCar.prototype.constructor);
+      
+        var jbc = new JamesBondCar();
+        jbc.constructor = JamesBondCar;
+
+        console.log(jbc.__proto__);
+        console.log(jbc.constructor);
+
+        var obj = {};
+        //obj.Name = 'XYZ';
+        obj.Location = 'India';
+
+
+        Object.defineProperty(obj, "Name",
+            {value:'PQR',
+            enumerable: true,// for propertyIsEnumerable
+            writable:true 
+            });
+
+        console.log(obj.Name);
+        console.log(obj.hasOwnProperty("Name"));
+        console.log(obj.propertyIsEnumerable("Name"));
+
+
+        console.log('---->')
+
+        for (var prop in obj) {
+            console.log(obj[prop]);
+        }
+
+      
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

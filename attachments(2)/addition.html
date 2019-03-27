@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <script src="jquery-3.1.0.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        $('#btn').click(Add);
+
+        function Add() {
+            var x = $('#n1').val();
+            var y = $('#n2').val();
+            $('#result').html(parseInt(x) + parseInt(y));
+        }
+    });
+    </script>
+</head>
+
+<body>
+    <h1>Add:</h1>
+    <p>1:
+        <input type="text" id="n1" />
+    </p>
+    <p>2:
+        <input type="text" id="n2" />
+    </p>
+    <span>Result:</span>
+    <span id="result"></span>
+    <p>
+        <input type="button" id="btn" value="add" />
+    </p>
+</body>
+
+</html>

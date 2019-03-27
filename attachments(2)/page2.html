@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Page2</title>
+    <script src="history()">
+    var count = 0;
+    localStorage.setItem('count', count);
+
+    function go() {
+        localStorage[mykey] = count;
+        history.go(count);
+    }
+    </script>
+</head>
+
+<body>
+    <a href="page3.html">go to page3</a>
+    <input type="button" value="home" onclick="go()" />
+</body>
+
+</html>

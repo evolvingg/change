@@ -1,0 +1,154 @@
+<html>
+    <head>
+        <style>
+            * {
+                margin:0;
+                padding:0;
+            }
+
+            .grid {
+                width:50%;
+              margin:0 auto;
+                border:1px solid black;
+            }
+        .col-1 {
+            width:40%;
+            float:left;
+        }
+        .col-2 {
+            width:60%;
+            float:left;
+        }
+        .grid:after {
+            content:'';
+            display:block;
+            clear: both;
+        }
+        .chk div{
+            display:inline-block;
+            width:50%;
+        }
+        .chk {
+            border: 1px solid red;
+            /* overflow:hidden; */
+        }
+        .flexbox{
+           /*  display:flex; */
+            width:50%;
+            margin:0 auto;
+            border:1px solid green;
+
+        }
+        .row{
+            display: flex;
+            width:100%;
+        }
+        .col{
+            width:33.33%;
+        }
+        .inlin{
+            height: 18px;
+        }
+        .container { white-space: nowrap; border: 1px solid red;}
+.column { display: inline-block; width: 50%; white-space: normal; }
+.with{
+    float:left;
+}
+
+.with:nth-child(4){
+    clear:both;
+}
+.containerf {
+  border:2px solid red;
+
+}
+.containerf:after {
+content:'';
+clear:both;
+display:block;
+}
+.with:nth-child(1){
+    color:yellow;
+}
+
+.pos-chk {
+    width:1000px;
+    border:1px solid green;
+    height: 100%;
+    margin:0 auto;
+}
+.pos-chk-head {
+    border: 1px solid blue;
+    position: fixed;
+    height: 30%;
+    background-color: blue;
+    width: 100%;
+    top: 0;
+}
+.pos-chk-details {
+    border: 1px solid black;
+    height: 70%;
+}
+        </style>
+    </head>
+    <body>
+        <div class="grid">
+            <div class="inlin col-1"></div>
+            <div class="col-2">
+                <input type="text" placeholder="fname"/>
+                <input type="text" placeholder="lname"/>
+            </div>
+            <label class="col-1">email</label>
+            <input type="text" class="col-2" placeholder="email"/>
+            <label class="col-1">phone</label>
+            <input type="text" class="col-2"/>
+            <label class="col-1">address</label>
+            <textarea class="col-2">
+            </textarea>
+        </div>
+
+        <div class="chk">
+            <div>first</div><div>second</div>
+        </div>
+
+        <div class="flexbox">
+            <div class="row">
+                <div class="col">1</div>
+                <div class="col">2</div>
+                <div class="col">3</div>
+            </div>
+            <div class="row">
+                    <div class="col">4</div>
+                    <div class="col">5</div>
+                    <div class="col">6</div>
+                </div>
+                <div class="row">
+                        <div class="col">7</div>
+                        <div class="col">8</div>
+                        <div class="col">9</div>
+                    </div>
+
+        </div>
+        <div class="container">
+                <div class="column">text that can wrap</div>
+                <div class="column">text that can wrap</div>
+              </div>
+
+              <div class="containerf">
+                    <div class="with">text that can wrap</div>
+                    <div class="with">text that can wrap</div>
+                    <div class="with">text that can wrap</div>
+                    <div class="with">text that can wrap</div>
+                    <div class="with">text that can wrap</div>
+                    <div class="with">text that can wrap</div>
+                    <div class="with">text that can wrap</div>
+                    <div class="with">text that can wrap</div>
+                  </div>
+
+
+        <div class="pos-chk">
+            <div class="pos-chk-head">header data</div>
+            <section class="pos-chk-detail">data to show for information</section>
+        </div>
+    </body>
+</html>

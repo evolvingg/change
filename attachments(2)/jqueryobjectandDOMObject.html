@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <script src="jquery-3.1.0.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        var paras = $('p');
+        for (var i = 0; i < paras.length; i++) {
+            console.log(paras.eq(i).html()); //eq(2) returns a DOM Object wrapped in jquery
+            console.log(paras.get(i).innerHTML); //paras[i]
+        }
+        paras.each(function(ind) {
+            if ((ind % 2) == 0)
+                console.log(ind + " :" + $(this).html() + "  " + (this).innerHTML);
+        });
+
+        paras.each(function(ind) {
+            var t = $(this).text();
+            console.log(ind + " :" + $(this).html() + "  " + (this).innerHTML);
+            if (t.match(/stop/))
+                return false;
+        });
+
+
+    })
+    </script>
+</head>
+
+<body>
+    <p>first </p>
+    <p>stop here second para</p>
+    <p>third</p>
+</body>
+
+</html>

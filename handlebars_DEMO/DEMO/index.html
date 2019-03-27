@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Handlebars</title>
+</head>
+<body>
+
+	<div id="targetDiv"></div>
+
+	<script type="text/javascript" src="../handlebars-v4.0.5.js"></script>
+	<script type="text/javascript">
+		var rawTemplate = "This is {{name}}";
+		var preCompiledTemplate = Handlebars.compile(rawTemplate);
+		console.log(preCompiledTemplate);
+		var html = preCompiledTemplate({"name":"Manvendra Singh"});
+		document.getElementById("targetDiv").innerHTML = html;
+	</script>
+
+</body>
+</html>

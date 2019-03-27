@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body onload="MakeAJAXreq()">
+<h1>Search names</h1>
+<input type="text" id="txt" placeholder="users" oninput="searchuser()"/>
+<div id="resultbox"></div>
+<script type="text/javascript">
+   url="names.json";
+   function MakeAJAXreq()
+   {
+	   var xmlhttp=new XMLHttpRequest();
+	   xmlhttp.onreadystatechange=function(){
+	    	if(xmlhttp.readyState ===4  &&  xmlhttp.status===200){
+	    		 unames=JSON.parse(xmlhttp.responseText);
+	    		 document.getElementById('resultbox').innerHTML="";
+	    		 for(var i=0;i<unames.users.length;i++)
+	    			document.getElementById('resultbox').innerHTML+="<br>"+unames.users[i]+"<br>";
+	    	  }
+	     }
+	    xmlhttp.open('GET',url,true);   
+      	xmlhttp.send();
+	    		 
+   }
+   function searchuser()
+   {
+	   document.getElementById('resultbox').innerHTML=" ";
+	   for(var i=0;i<unames.users.length;i++)
+		 {
+		  var name=document.getElementById('txt');
+		  var lname=(name.value).toLowerCase();
+		  var uname=unames.users[i].toLowerCase();
+		  if((uname).indexOf(lname)===0)
+		   	document.getElementById('resultbox').innerHTML+="<br>"+unames.users[i]+"<br>";
+		 }
+	   
+   }
+</script>
+</body>
+</html>

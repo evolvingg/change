@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+
+    <script>
+
+        $(document).ready(function () {
+
+            $('#divDraggable').draggable();
+            $('#divDroppable').droppable({
+                drop: function () { alert('u dropped !'); }
+            });
+        });
+
+    </script>
+</head>
+<body>
+
+    <div id="divDraggable" style="border:2px solid red;width:100px;height:100px">
+
+
+        Drag me anywhere !
+
+    </div>
+    <br/>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <div id="divDroppable" style="border:2px solid red;width:500px;height:500px">
+
+
+        Drop here !
+
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="jquery-3.1.0.js"></script>
+
+    <script>
+
+        $(document).ready(function () {
+
+            var paras = $('p');
+            
+           // for (var i = 0; i < paras.length; i++) {
+                //console.log( $(paras[i]).html());
+
+               // console.log(paras.eq(i).html()); // eq(2)  -> returns a DOM Object wrapped in jQuery object
+            
+                //console.log(paras.get(i).innerHTML); // paras[i]                
+            //  }
+
+            paras.each(function (ind) {                
+                var txt = $(this).text();
+                console.log(txt);
+                //if ((ind % 2) == 0) {
+                //    console.log(ind + " : " + $(this).html());
+                //}
+                if (txt.match(/Stop/)) {
+                    return false; // stop iterating !
+                }
+            });
+
+
+        });
+
+
+    </script>
+</head>
+<body>
+
+
+    <p class="even"> First Para !</p>
+    <p class="even"> First Para !</p>
+    <p class="even"> First Para !</p>
+    <p class="even"> First Para !</p>
+    <p class="even"> First Para !</p>
+    <p class="even"> First Para !</p>
+    <p class="even"> First Para !</p>
+    <p class="even"> First Para !</p>
+
+    <p id="para"> Stop here Para !</p>
+    <p class="even"> Third Para !</p>
+
+
+</body>
+</html>

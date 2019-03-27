@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+</head>
+<style>
+div {
+    background-color: green;
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+    vertical-align: top;
+}
+</style>
+
+<body>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <input type="button" value="change color" />
+</body>
+<script src="jquery-3.1.0.js"></script>
+<script>
+var divs = $('div');
+$('div').click(Calledonclick);
+var x;
+
+function Calledonclick(e) {
+    $(e.target).html("stops here");
+    x = $(e.target);
+}
+
+$('input').click(changecolour);
+
+function changecolour() {
+    divs.each(function(index) {
+        $(divs[index]).css('background-color', 'blue');
+        if ($(divs[index]).html() === "stops here")
+            return false;
+    })
+}
+</script>
+
+</html>

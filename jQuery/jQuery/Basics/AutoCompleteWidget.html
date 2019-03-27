@@ -1,0 +1,22 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <!--<script src="jquery-1.11.1.js"></script>-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <!--<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">-->
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.1/themes/ui-darkness/jquery-ui.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            var nameOfCompanies = ["Oracle","Opus", "Wipro", "WMS", "WNS", "Microsoft", "Sapient"];
+            $('#targetData').autocomplete({
+                source:nameOfCompanies
+            });//eof autocomplete
+        });// eof ready
+    </script>
+</head>
+<body>
+    <input type="text" id="targetData" />
+</body>
+</html>
