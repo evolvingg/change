@@ -64,11 +64,11 @@
 
 <body>
 
-    <table onclick="called(event)">
+    <table class="table" >
         <thead>
             <tr>
                 <td colspan=3>for delegation</td>
-                <td><button class="addRow(event)">click to add row</button></td>
+                <td><button class="tabbed" >click to add row</button></td>
             </tr>
         </thead>
         <tbody class="tbody">
@@ -93,12 +93,35 @@
         </tbody>
     </table>
     <script>
+        window.onload = function(){
+            var table=document.getElementsByClassName('table')[0];
+            var tabRow=document.getElementsByClassName('tabbed')[0];
+
+            //in case of bubbling child element's function is called 1st
+            table.addEventListener('click',called,false);
+            tabRow.addEventListener('click',addRow,false);
+
+            //in case of tunneling parent element's function is called 1st
+            table.addEventListener('click',called,true);
+            tabRow.addEventListener('click',addRow,true);
+
+        }
         function called(event){
             alert(event.target.innerHTML)
-            alert(event.currentTarget.innerHTML)
+            //alert(event.currentTarget.innerHTML)
         }
         function addRow(event){
-            var elem = 
+            var table=document.getElementsByClassName('tbody')[0];
+            var row=document.createElement('tr');
+            for(i=0;i<4;i++){
+                var td = document.createElement('td');
+                td.innerHTML = "cell" + i;
+                row.appendChild(td);
+            }
+          //  var img= document.createElement('img');
+        // img.src ='eg.PNG';
+          //  row.appendChild(img);
+            table.appendChild(row);
         }
 
     </script>
