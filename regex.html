@@ -67,10 +67,11 @@
     <table onclick="called(event)">
         <thead>
             <tr>
-                <td colspan=4>for delegation</td>
+                <td colspan=3>for delegation</td>
+                <td><button class="addRow(event)">click to add row</button></td>
             </tr>
         </thead>
-        <tbody>
+        <tbody class="tbody">
             <tr>
                 <td>A--cell1</td>
                 <td>A--cell2</td>
@@ -96,6 +97,10 @@
             alert(event.target.innerHTML)
             alert(event.currentTarget.innerHTML)
         }
+        function addRow(event){
+            var elem = 
+        }
+
     </script>
 </body>
 
