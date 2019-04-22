@@ -102,13 +102,19 @@
             tabRow.addEventListener('click',addRow,false);
 
             //in case of tunneling parent element's function is called 1st
-            table.addEventListener('click',called,true);
-            tabRow.addEventListener('click',addRow,true);
+           // table.addEventListener('click',called,true);
+          //  tabRow.addEventListener('click',addRow,true);
 
         }
         function called(event){
             alert(event.target.innerHTML)
-            //alert(event.currentTarget.innerHTML)
+            console.log('type:target',typeof event.currentTarget.innerHTML, event.target,event)
+            console.log(event.currentTarget.innerHTML);
+            const {name, value} = {value:'wewe'};
+            console.log(name,value)
+          let user = Object.assign({}, {tan:'Star'});
+           user[name] = value;
+           console.log(user)
         }
         function addRow(event){
             var table=document.getElementsByClassName('tbody')[0];
