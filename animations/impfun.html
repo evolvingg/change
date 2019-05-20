@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Important</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <h1>Functions</h1>
+        <p> list :</p>
+        <p> 
+            Sum
+            <span class="sum"></span>
+        </p>
+        <p>
+            printLinklist
+            <span class="sum"></span>
+        </p>
+        <p>
+            reverse
+            <span class="sum"></span>
+        </p>
+
+        <p>
+            fibonacci
+            <span class="sum"></span>
+        </p>
+
+        <p>
+            permutation (2)(3)(4)
+            <span class="sum"></span>
+        </p>
+    </body>
+<script>
+
+let list = {
+  value: 1,
+  next: {
+    value: 2,
+    next: {
+      value: 3,
+      next: {
+        value: 4,
+        next: null
+      }
+    }
+  }
+};
+document.write(JSON.stringify(list));
+
+let val = '' , rev='' ;
+
+function linkList(list){
+   if( list.next === null ) {
+		return list.value; 
+	} else {
+		return list.value + linkList(list.next)
+	}
+}
+
+function printList(list){
+   if( list.next === null ) {
+		return list.value;
+	} else {
+        return 	list.value + ' ' + printList(list.next);
+	}
+}
+
+function revprintList(list){
+   if( list.next === null ) {
+		return list.value;
+	} else { 
+		return revprintList(list.next) + ' ' + list.value;
+	}
+}
+
+function fibonacci(val) {
+    if(val <= 1) {
+        return val;
+    }
+    else {
+        return fibonacci(val-1) + fibonacci(val-2);
+    }
+}
+
+function permutation(x,y,z){
+    if(typeof y === 'undefined') {
+        return permutation.bind(null,x);
+    }
+    else if(typeof z === 'undefined') {
+        return permutation.bind(null,x,y);
+    }
+    else  {
+        return x+y+z;
+    }
+}
+
+document.getElementsByClassName('sum')[0].innerHTML = linkList(list);
+document.getElementsByClassName('sum')[1].innerHTML = printList(list);
+document.getElementsByClassName('sum')[2].innerHTML = revprintList(list);
+document.getElementsByClassName('sum')[3].innerHTML = fibonacci(6);
+document.getElementsByClassName('sum')[4].innerHTML = permutation(2)(3)(4);
+
+</script>
+</html>

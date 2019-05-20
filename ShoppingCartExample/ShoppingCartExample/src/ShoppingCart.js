@@ -21,7 +21,7 @@ class ShoppingCart extends React.Component {
      console.log(productList);
     var product = productList.find(product => product.id === id);
     product.isAddedToCart = true;
-    console.log($r);
+    //console.log($r);
     cartItems.push(product);
     console.log(cartItems);
     this.setState({

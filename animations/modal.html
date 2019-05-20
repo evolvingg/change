@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css">
+    <script src="main.js"></script>
+
+</head>
+<body>
+    <div class="container">
+            <h2>Page content ....</h2>
+<button data-index=1 class="bt">
+    pop out interface1
+</button>
+<button data-index=2 class="bt">
+    pop out interface2
+</button>
+<button data-index=3 class="bt">
+    pop out interface3
+</button>
+            <div id="box1" class="myboxes">
+                    <h2>Pop out Interface1</h2>
+                </div>
+                <div id="box2" class="myboxes">
+                    <h2>pop out interfac2</h2>
+                </div>
+                <div id="box3" class="myboxes">
+                    <h2>Pop out Interface3</h2>
+                </div>
+    </div>
+
+    <div class="mousechks" onmouseover="CalledMouse(event)">
+        <div class="id3">
+            <div class="id4">
+                <span class="anthr">text</span>
+                <span class="red blue">textprev</span>
+                <span class="blue red">textnext</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="stackProb">
+        stacked
+        <div class="tipsy">
+            tipsy div
+            <div class="tipsy-content">
+                some text to display some text to display some text to display some text to display some text to display
+            </div>
+        </div>
+    </div>
+    <style>
+        #outer {
+   margin: 5em;
+   border: 1px solid #f00;
+ }
+
+ #inner {
+   width: 6em;
+   height: 4em;
+   background-color: #999;
+ }
+    </style>
+    <div id="outer">
+            <div id="inner"></div>
+          </div>
+
+</body>
+<script>
+        var btns;
+        var boxArray=['box1','box2','box3'];
+        window.addEventListener('click',function(event){
+            var box;
+            for(var i=0;i<boxArray.length; i++){
+                box=document.getElementById('box'+(i+1));
+                console.log('event',event.target)
+                if(event.target != box && event.target.parentNode != box){
+		            box.style.display = 'none';
+	            }
+            }
+        });
+        btns = document.getElementsByClassName('bt');
+        console.log('btns',btns);
+        //iife
+        for(var i=0;i<btns.length ; i++){
+            (function(i){
+                btns[i].addEventListener('click' , function(event){
+                console.log('this:',this,i);
+                document.getElementById(boxArray[i]).style.display = "block";
+                }); 
+            })(i)
+        }
+        
+        function CalledMouse(event) {
+            console.log(event.target);
+        }
+        //callback
+        // for(var i=0;i<btns.length; i++) {
+        //     callback1(btns[i],i);
+        // }
+        // function callback1(elem,index) {
+        //     elem.addEventListener('click',function(event){
+        //         document.getElementById(boxArray[index]).style.display="block";
+        //     })
+        // }
+
+
+        //need to look
+        // for(var i=0;i<btns.length; i++) {
+        //     btns[i].click= function(event){
+        //             calledAgain(i);
+        //     }
+        // }
+        
+        // function calledAgain(index){
+        //     document.getElementById(boxArray[index]).style.display="block";
+        // }
+        
+    </script>
+</html>

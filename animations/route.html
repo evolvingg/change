@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+   <head>
+     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+     <title>Relative Positioning</title>
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+     <style>
+.overlay {
+    background-color:rgba(255,0,0,0.5);
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    display: none;
+    top: 0;
+}
+.modal {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    display: none;
+    background-color: blue;
+}
+.dis {
+    display: block;
+}
+.close {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+     </style>
+   </head>
+   <body>
+        <button>click me</button>
+        <div class="overlay">
+            <div class="modal">
+                <div class="close">X</div>
+            </div>
+        </div>
+   </body>
+   <script>
+   var btn = document.getElementsByTagName('button')[0];
+   var elem = document.getElementsByClassName('modal');
+    var par = elem[0].parentElement;
+    var close = par.getElementsByClassName('close')[0];
+    btn.onclick = called;
+    
+    function called(){
+        elem[0].classList.add('dis');
+        par.classList.add('dis');
+        close.onclick=other;
+        history.pushState({obj:1},"page1","");
+    }
+
+    function other(){
+        elem[0].classList.remove('dis');
+        par.classList.remove('dis');
+        history.back();
+    }
+   </script>
+ </html>

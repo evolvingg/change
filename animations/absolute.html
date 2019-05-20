@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Absolute and fixed</title>
+    <style>
+html, body {
+   margin: 0;
+   padding: 0;
+ }
+ #outer {
+   margin: 5em;
+   border: 1px solid #f00;
+   height: 8em; position: relative;
+ }
+
+ #inner {
+   width: 5em; height: 5em;
+   background-color: #999;
+   position: absolute;
+   left: 1em;
+   z-index: 1;
+ }
+
+ /* #inner {
+   width: 50%; height: 50%;
+   background-color: #999;
+   position: absolute;
+   left: 1em;
+ } */
+ #second {
+   width: 5em;
+   height: 5em;
+   background-color: #00f;
+   position: absolute;
+   top: 1em;
+   left: 2em;
+ }
+
+ span {
+   position: absolute;
+   top: 2em;
+   left: 2em;
+   width: 3em;
+   height: 3em;
+ }
+
+ #inner span {
+   background-color: #ff0;
+ }
+
+ #second span {
+   background-color: #0ff;
+   z-index: 1;
+ }
+
+ #inner {
+   width: 5em;
+   height: 5em;
+   background-color: #999;
+   position: fixed; top: 1em;
+   left: 1em;
+ }
+
+ #second {
+   width: 5em;
+   height: 150em;
+   background-color: #00f;
+   position: absolute;
+   top: 1em;
+   left: 2em;
+ }
+
+    </style>
+</head>
+<body>
+    <div id="outer">
+        outter
+        <div id="inner">
+            hello
+            <span>qwerty</span>
+        </div>
+        <div id="second">
+                <span>second</span>
+        </div>
+      </div>
+</body>
+</html>

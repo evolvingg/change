@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            *{
+                box-sizing:border-box;
+                margin:0;
+                padding:0;
+            }
+            .container {
+                border: 1px solid red;
+                height: 250px;
+                overflow: auto;
+            }
+            .img {
+                border: 1px solid green;
+            }
+            .container::-webkit-scrollbar {
+                width: 0;
+            }
+            p {
+                border:1px solid green;
+                padding: 1em; 
+                background-color: #ff9;
+            }
+            em {
+                border: 1px solid red;
+            }
+
+            #span-a {
+                float: left;
+                background-color: #cfc;
+                color: #030;
+                /* padding: 1em; */
+                padding: 1em 1em 10em;
+                margin-left: 1em; margin-right: 1em;
+            }
+            /* #span-a:after {
+                content:'';
+                display: block;
+                clear:both;
+            } */
+
+            /* #span-b {
+                float: left;
+                background-color: #ccf;
+                color: #003;
+                padding: 1em;
+                margin-left: 1em; margin-right: 1em;
+            }
+            #span-c {
+                float: left;
+                background-color: #fcc;
+                color: #300;
+                padding:2em 1em;
+                margin-top: 2em;
+                margin-bottom: 2em;
+                margin-left: -4em;
+            } */
+            /* span {
+                width: 34%;
+            } */
+            #p2 {
+                clear:left;
+            }
+            /* #span-b {
+                float: left;
+                clear: left;
+                padding: 1em;
+                background-color: #ccf;
+                color: #003;
+            } */
+            #p1 {
+   /* float: left; */
+   overflow: hidden;
+ }
+
+ #menu {
+   margin: 0;
+   padding: 0.5em;
+   font-family: Verdana, sans-serif;
+   position: relative; left: -50%;
+ }
+
+ #menu li {
+   float: left;
+   list-style-type: none;
+   margin: 0 0 0 0.5em;
+   padding: 0.25em;
+   background-color: #600;
+   color: #ff9;
+   border: 2px solid #f00;
+ }
+
+ #menu a {
+   color: #ff9;
+   text-decoration: none;
+ }
+
+ .wrap {
+    margin-bottom: 2em;
+   position: relative;
+    left: 50%;
+ }
+
+ .clear {
+   clear: left;
+   height: 1px;
+   margin-top: -1px;
+ }
+
+
+ em {
+  margin: 0 2em;
+  padding: 0 1em;
+  border: 1px dotted blue;
+}
+        </style>
+    </head>
+    <body>
+       <div class="container">
+            <img class="img" src='flower1.jpeg'/>
+            <img class="img" src='flower1.jpeg'/>
+            <img class="img" src='lilies3.jpeg'/>
+            <img class="img" src='flower1.jpeg'/>
+            <img class="img" src='lilies3.jpeg'/>
+            <img class="img" src='flower1.jpeg'/>
+            <img class="img" src='lilies3.jpeg'/>
+            <img class="img" src='flower1.jpeg'/>
+            <img class="img" src='lilies2.jpg'/>
+            <img class="img" src='lilies3.jpeg'/>
+       </div>
+       
+    <p>This is a very simple document.</p>
+    <p>It consists of <em>two</em> paragraphs.</p>
+
+    
+       <p id="p1">
+            Curabitur feugiat feugiat purus.
+        <span id="span-a">Lorem ipsum</span>
+       <span id="span-b">dolor sit amet</span>
+       <span id="span-c">consectetuer</span> adipiscing elit.
+       Curabitur feugiat feugiat purus.
+       Aenean eu metus. Nulla facilisi.
+       Pellentesque quis justo vel massa suscipit sagittis.
+       Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos.
+       Quisque mollis, justo vel rhoncus aliquam, urna tortor varius lacus, ut tincidunt metus arcu vel lorem.
+       Praesent metus orci, adipiscing eget, fermentum ut, pellentesque non, dui.
+       Sed sagittis, metus a semper dictum, sem libero sagittis nunc, vitae adipiscing leo neque vitae tellus.
+       Duis quis orci quis nisl nonummy dapibus.
+       Etiam ante. Phasellus imperdiet arcu at odio.
+       In hac habitasse platea dictumst. Aenean metus.
+       Quisque a nibh. Morbi mattis ullamcorper ipsum.
+       Nullam odio urna, feugiat sed, bibendum sed, vulputate in, magna.
+       Nulla tortor justo, convallis iaculis, porta condimentum, interdum nec, arcu.
+       Proin lectus purus, vehicula et, cursus ut, nonummy et, diam.</p>
+
+       <p id="p2">Nunc ac elit. Vestibulum placerat dictum nibh. Proin massa.
+       Curabitur at lectus egestas quam interdum mollis.
+       Cras id velit a lacus sollicitudin faucibus.
+       Proin at ante id nisi porttitor scelerisque.
+       In metus. Aenean nonummy semper enim.
+       Aenean tristique neque quis arcu tincidunt auctor.
+       Fusce consequat auctor ligula.
+       Fusce nulla lorem, sagittis a, lacinia et, nonummy in, eros.
+       In nisi augue, aliquam eget, convallis vel, malesuada quis, libero.</p>
+
+       <p id="p3">Hello, World!</p>
+
+    <div class="wrap">
+        <ul id="menu">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">News</a></li>
+          <li><a href="#">Products</a></li>
+          <li><a href="#">Services</a></li>
+        </ul>
+    </div>
+
+
+    <div>
+        regarding inline boxes
+        <p>lets see again again <em>lets do it</em><em>lets do it</em><em>lets do it</em>lets see again again lets see <em>lets do it</em>again again lets see again again</p>
+    </div>
+
+    </body>
+    <script>
+        let lazyloadImages = [...document.querySelectorAll('.img')];
+        let inAdvance = 300;
+
+        function lazyLoad() {
+            lazyloadImages.forEach(image => {
+                if(image.offsetTop < window.innerHeight + window.pageYOffset + inAdvance) {
+                    image.src = image.dataset.src;
+                }
+            })
+        }
+
+        // function throttled(delay, fn) {
+        //     let lastCall = 0;
+        //     return function (...args) {
+        //         const now = (new Date).getTime();
+        //         if (now - lastCall < delay) {
+        //             return;
+        //         }
+        //         lastCall = now;
+        //         return fn(...args);
+        //     }
+        // }
+
+       // lazyLoad();
+       // window.addEventListener('scroll', throttled(5000,lazyLoad));
+       // window.addEventListener('resize', throttled(5000,lazyLoad));
+    </script>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Binary Search Tree</title>
+    </head>
+    <body></body>
+    <script>
+
+function Tree(){
+	this.root = null;
+}
+Tree.prototype.addValue = function(n){
+	if(this.root == null){
+		this.root = n;
+	}else{
+		this.root.addNode(n);
+	}
+}
+Tree.prototype.traverse = function(){
+	this.root.visit();
+}
+Tree.prototype.search = function(s){
+	this.root.search(s);
+}
+Tree.prototype.findMaxDepth = function(){
+	 return this.root.findMaxDepth();
+}
+
+function Node(val){
+	this.left = null;
+	this.value = val;
+	this.right = null;
+}
+Node.prototype.search = function(s){
+	if(this.value == s){
+		console.log("Found" + s);
+	}else if(s <= this.value){
+		if(this.left){
+			this.left.search(s);
+		}else{
+			console.log("Not Found")
+		}
+	}else if(s > this.value){
+		if(this.right){
+			this.right.search(s);
+		}else{
+			console.log("Not Found")
+		}
+	}
+}
+Node.prototype.visit = function(){
+	if(this.left){
+		this.left.visit();
+	}
+	console.log(this.value);
+	if(this.right){
+		this.right.visit();
+	}
+}
+
+Node.prototype.findMaxDepth = function(){
+	if(this == null){
+		return 0;
+	}else{
+		if(this.left){
+			lheight = this.left.findMaxDepth();
+		}else{
+			lheight =  -1;
+		}
+		if(this.right){
+			rheight = this.right.findMaxDepth();
+        }else{
+			rheight = -1;
+		}
+	}
+	return Math.max(lheight,rheight) + 1;
+}
+
+Node.prototype.addNode = function(n){
+	if(n.value <= this.value){
+		if(this.left == null){
+			this.left = n;
+		}else{
+			this.left.addNode(n);
+		}		
+	}if(n.value> this.value){
+		if(this.right == null){		
+			this.right = n;
+        }else{
+			this.right.addNode(n);
+		}
+	}
+}
+
+var tree = new Tree();
+for(var i =0 ;i <10;i++){
+	tree.addValue(new Node(Math.floor(Math.random()*100)));
+}
+tree.traverse();
+//tree.search(5);
+var maxDepth = tree.findMaxDepth();
+console.log(`max depth is ${maxDepth}`);
+    </script>
+</html>

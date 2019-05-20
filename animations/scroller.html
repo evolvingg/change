@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+        <div class="scroller-cont pr col-9">
+            <div ng-show="shownextprev.showprev" class="ytfi-angle-left scroll-dir abs prev" ng-click="startscroll($event,'left')">
+            </div>
+            <ul class="multicity-tab scroller no-wrap">
+                <li class="multicity-list v-aligm-m scroll-elem i-b">
+                    <span class="origin-name fs-14 bold">New Delhi</span>
+                    <i class="ytfi-arrow-right fs-10"></i>
+                    <span class="destination">London</span>
+                    <div class="traveller-details">
+                        <span>02 Feb</span>
+                        <i></i>
+                        <span>4 passenger</span>
+                        <i></i>
+                        <span>Economy</span>
+                    </div>
+                </li>
+                <li class="multicity-list v-aligm-m scroll-elem i-b">
+                    <span class="origin-name fs-14 bold">New Delhi</span>
+                    <i class="ytfi-arrow-right fs-10"></i>
+                    <span class="destination">London</span>
+                    <div class="traveller-details">
+                        <span>02 Feb</span>
+                        <i></i>
+                        <span>4 passenger</span>
+                        <i></i>
+                        <span>Economy</span>
+                    </div>
+                </li>
+                <li class="multicity-list v-aligm-m scroll-elem i-b">
+                    <span class="origin-name fs-14 bold">New Delhi</span>
+                    <i class="ytfi-arrow-right fs-10"></i>
+                    <span class="destination">London</span>
+                    <div class="traveller-details">
+                        <span>02 Feb</span>
+                        <i></i>
+                        <span>4 passenger</span>
+                        <i></i>
+                        <span>Economy</span>
+                    </div>
+                </li>
+                <li class="multicity-list v-aligm-m scroll-elem i-b">
+                    <span class="origin-name fs-14 bold">New Delhi</span>
+                    <i class="ytfi-arrow-right fs-10"></i>
+                    <span class="destination">London</span>
+                    <div class="traveller-details">
+                        <span>02 Feb</span>
+                        <i></i>
+                        <span>4 passenger</span>
+                        <i></i>
+                        <span>Economy</span>
+                    </div>
+                </li>
+                <li class="multicity-list v-aligm-m scroll-elem i-b">
+                    <span class="origin-name fs-14 bold">New Delhi</span>
+                    <i class="ytfi-arrow-right fs-10"></i>
+                    <span class="destination">London</span>
+                    <div class="traveller-details">
+                        <span>02 Feb</span>
+                        <i></i>
+                        <span>4 passenger</span>
+                        <i></i>
+                        <span>Economy</span>
+                    </div>
+                </li>
+            </ul>
+            <div ng-show="shownextprev.shownext" ng-click="startscroll($event,'right')" class="cursor-pointer ytfi-angle-right scroll-dir abs next">
+            </div>
+        </div>
+    </body>
+    <script>
+    function _checkscroller(el) {
+		var scroller = el;
+		if (typeof scroller == "undefined") {
+			return;
+		}
+		var elementcount = scroller.querySelectorAll('.scroll-elem').length;
+		var element = scroller.querySelectorAll('.scroll-elem')[0];
+		var scrollWidth = element.clientWidth;
+		var totalwidth = elementcount * scrollWidth;
+		var scrollerwidth = scroller.clientWidth;
+		var next = true;
+		var prev = true;
+		if (scroller.scrollLeft >= totalwidth - scrollerwidth) {
+			next = false;
+		}
+		if (scroller.scrollLeft <= 0) {
+			prev = false;
+		}
+		return {
+			showprev : prev,
+			shownext : next
+		}
+	}
+
+    function _startscroll(e, direction) {
+		var parent = e.target.parentElement;
+		var scroller = parent.querySelectorAll('.scroller')[0];
+		var elementcount = scroller.querySelectorAll('.scroll-elem').length;
+		var element = scroller.querySelectorAll('.scroll-elem')[0];
+		var scrollWidth = element.clientWidth;
+		var totalwidth = elementcount * scrollWidth;
+		var scrollerwidth = scroller.clientWidth;
+		var next = true;
+		var prev = true;
+		if ((scroller.scrollLeft >= totalwidth - scrollerwidth && direction == "right") || (scroller.scrollLeft <= 0 && direction == "left")) {
+			return;
+		}
+		scroller.scrollLeft += (direction == "left" ? -scrollWidth : scrollWidth);
+		if (scroller.scrollLeft >= totalwidth - scrollerwidth) {
+			next = false;
+		}
+		if (scroller.scrollLeft <= 0) {
+			prev = false;
+		}
+		return {
+			showprev : prev,
+			shownext : next
+		}
+
+	}
+    </script>
+</html>

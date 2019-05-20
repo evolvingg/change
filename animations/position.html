@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+   <head>
+     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+     <title>Relative Positioning</title>
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+     <style>
+        p {
+            width: 20em;
+        }
+
+        span {
+            background-color: lime;
+            position: relative;
+   top: 1em;
+   left: 2em;
+        }
+
+        #header {
+   background-color: #369;
+   color: #fff;
+ }
+
+ #sidebar {
+   background-color: #ff6;
+ }
+
+ #nav {
+   background-color: #ddd;
+ }
+
+ #footer {
+   border-top: 1px solid #369;
+ }
+ body {
+   margin: 0 auto;
+   min-width: 40em;
+   max-width: 56em;
+ }
+
+ #main {
+   float: left;
+   width: 100%;
+   background-color: lime;
+ }
+
+ #sidebar {
+   float: left;
+   width: 13em;
+   padding: 0 0.5em;
+   background-color: #ff6;
+   margin-left: -14em;
+   position: relative;
+   left: 15em;
+ }
+
+ #nav {
+   float: left;
+   width: 11em;
+   padding: 0 0.5em;
+   background-color: #ddd;
+   margin-left: -100%;
+   position: relative;
+   right: 13em;
+ }
+
+ #footer {
+   clear: left;
+   border-top: 1px solid #369;
+ }
+
+ #wrapper {
+   margin: 0 14em 0 12em;
+   padding: 0 1em;
+ }
+
+
+     </style>
+   </head>
+   <body>
+     <p>Lorem ipsum dolor sit amet consectetuer adipiscing elit.
+     Curabitur feugiat feugiat purus.
+     Aenean eu metus. Nulla facilisi.
+     Pellentesque quis justo vel massa suscipit sagittis.
+     Class <span>aptent taciti sociosqu</span> ad litora torquent per conubia nostra, per inceptos hymenaeos.
+     Quisque mollis, justo vel rhoncus aliquam, urna tortor varius lacus, ut tincidunt metus arcu vel lorem.
+     Praesent <span>orci, adipiscing eget</span> <span>, fermentum ut, pellentesque non,</span> dui.
+     Sed sagittis, metus a semper dictum, sem libero sagittis nunc, vitae adipiscing leo neque vitae tellus.
+     Duis quis orci quis nisl nonummy dapibus.
+     Etiam ante. Phasellus imperdiet arcu at odio.
+     In hac habitasse
+     Nullam odio urna, feugiat sed, bibendum sed, vulputate in, magna.
+     Nulla tortor justo, convallis iaculis, porta condimentum, interdum nec, arcu.
+     Proin lectus purus, vehicula et, cursus ut, nonummy et, diam.</p>
+     <div id="header">Header</div>
+     <div id="wrapper">
+       <div id="main">Main content</div>
+       <div id="sidebar">Sidebar</div>
+       <div id="nav">Navigation</div>
+     </div>
+   <div id="footer">Footer</div>
+ 
+   </body>
+ </html>
