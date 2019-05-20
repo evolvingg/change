@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css">
+    <script src="main.js"></script>
+    <style>
+        * {
+            margin:0;
+            padding:0;
+            box-sizing: border-box;
+        }
+
+    .container{
+        background-color:lightgrey;
+        height:100%;
+        position: fixed;
+        width: 100%;
+    }
+    .logo {
+        width:100px;
+        margin:0 auto 20px;
+        height:100px;
+        position: relative;
+        top: 10px;
+        border-radius: 50%;
+    }
+    .user-dialog{
+        width: 50%;
+        margin: 0 auto;
+        padding: 20px 15px;
+        background-color:#fff;
+    }
+    .input-field {
+        font-size:1.2em;
+        padding:10px 0;
+    }
+    .input-label {
+        display:block;
+    }
+    .uname,.pswd {
+        width: 100%;
+        font-size: 1.2em;
+    }
+    .lgbtn{
+        border-radius:4px;
+        background-color:dodgerblue;
+        padding:10px 5px;
+        color:#fff;
+    }
+    .lgbtn {
+        float:right;
+        font-size: 0.6em;
+    }
+    .user-dialog:after ,.input-fields:after{
+        content:'';
+        display: block;
+        clear:both;
+    }
+    .check-lab {
+        font-size:0.75em;
+    }
+    .check-lab {
+        float:left;
+    }
+    .row {
+        width:42%;
+        margin:10px auto;
+    }
+    .row a {
+        font-size:0.75em;
+        text-decoration:none;
+        color:black;
+    }
+    .csr-ptr {
+        cursor: pointer;
+    }
+    @media screen and (min-width:720px){
+        .row{
+            width: 46%;
+        }
+    }
+
+
+    </style>
+</head>
+<body>
+    <section class="container">
+        <div class="logo">
+            <img src="image001.svg"/>
+        </div>
+        <article class="user-dialog">
+            <form>
+                <div class="input-field">
+                    <label for="uname" class="input-label">Username or Email Address</label>
+                    <input type="text" id="uname" class="uname"/>
+                </div>
+                <div class="input-field">
+                    <label for="pswd" class="input-label">Password</label>
+                    <input type="password" id="pswd" class="pswd"/>               
+                </div>
+                <div class="input-fields">
+                    <label for="remember" class="check-lab csr-ptr">
+                        <input type="checkbox" name="remember" value="Remember me" class="check"/>
+                        Remember me
+                    </label>
+                    <input type="submit" value="Log In" class="lgbtn csr-ptr" />
+                </div>
+            </form>
+        </article>
+        <div class="row">
+            <a href="#" class="csr-ptr">Lost your password?</a>
+        </div>
+        <div class="row">
+            <a href="#" class="csr-ptr"><span><-</span>Back to Wishup Blog</a>
+        </div>
+    </section>
+</body>
+</html>
