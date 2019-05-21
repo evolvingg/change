@@ -1,0 +1,102 @@
+<<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+    <style>
+        .container{
+                display: grid;
+                grid-template-rows: 1fr 5fr 1fr;
+                grid-template-columns: 2fr 5fr 3fr;
+                grid-template-areas: 
+                "header header header"
+                "nav main aside"
+                "footer footer footer";
+                grid-gap: .75em;
+            }
+
+header{
+    grid-area: header;
+    background-color: teal;
+}
+nav{
+    grid-area: nav;
+    background-color: tomato;
+}
+main{
+    grid-area: main;
+    background-color: lightblue;
+}
+aside{
+    grid-area: aside;
+    background-color: orange;
+}
+footer{
+    grid-area: footer;
+    background-color: lightgreen;
+}
+@media(max-width: 768px){
+    grid-template-rows: 1fr 1fr 5fr 1fr;
+    grid-template-columns: 2fr 5fr 3fr;
+    grid-template-areas: 
+    "header header header"
+    "nav nav nav"
+    "main main aside"    
+    "footer footer footer";
+ }
+
+ @media(max-width: 480px){
+    display: block;
+}
+    </style>
+</head>
+<body>
+
+        <div class="container">
+                <header>HEADER</header>
+                <nav>NAV</nav>
+                <main>
+                MAIN
+                <button>clickme</button>
+                </main>
+                <aside>ASIDE</aside>
+                <footer>FOOTER</footer>
+              </div>
+
+        <form>
+        <div>
+            <label for="email" onclick="called1(event)">
+            Email
+                <input type="text" id="email" name="email" placeholder="emailId" />
+                <input type="text" id="email" name="email" placeholder="someother" />
+                <span>todo</span>
+                <hr/>
+                <span>todo</span>
+            </label>
+        </div>
+            
+        </form>
+
+    
+             
+</body>
+<script>
+var b=document.getElementsByTagName('button');
+b[0].onclick = called;
+
+function called(){
+    var elem = document.getElementsByTagName('body')[0];
+    var script = document.createElement('script');
+    script.src="chk.js" ;
+    elem.appendChild(script);
+}
+              function called1(event){
+                  debugger;
+                  alert(event.target.value);
+              }
+              </script>
+</html>
